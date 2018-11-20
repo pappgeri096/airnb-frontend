@@ -64,7 +64,7 @@
       </ul>
 
       <a  [routerLink]="['edit']" class="btn btn-sm btn-info" name="lodgingsId">Edit</a>
-      <a  [routerLink]="['delete']" class="btn btn-sm btn-info" name="lodgingsId">Delete</a>
+      <button  (click)="deleteLodgings()"  class="btn btn-sm btn-info" name="lodgingsId">Delete</button>
       <a  [routerLink]="['/todos', lodging.id, 'add']" class="btn btn-sm btn-info" name="lodgingsId">Add Todo</a>
 
     </div>

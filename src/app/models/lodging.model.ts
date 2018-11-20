@@ -48,7 +48,7 @@ export class Lodging {
     return this._id;
   }
 
-  set id(value: number) {
+  setId(value: number) {
     this._id = value;
   }
 
@@ -56,7 +56,7 @@ export class Lodging {
     return this._name;
   }
 
-  set name(value: string) {
+  setName(value: string) {
     this._name = value;
   }
 
@@ -64,7 +64,7 @@ export class Lodging {
     return this._lodgingsType;
   }
 
-  set lodgingsType(value: LodgingsType) {
+  setLodgingsType(value: LodgingsType) {
     this._lodgingsType = value;
   }
 
@@ -72,7 +72,7 @@ export class Lodging {
     return this._country;
   }
 
-  set country(value: string) {
+  setCountry(value: string) {
     this._country = value;
   }
 
@@ -80,7 +80,7 @@ export class Lodging {
     return this._city;
   }
 
-  set city(value: string) {
+  setCity(value: string) {
     this._city = value;
   }
 
@@ -88,7 +88,7 @@ export class Lodging {
     return this._zipCode;
   }
 
-  set zipCode(value: string) {
+  setZipCode(value: string) {
     this._zipCode = value;
   }
 
@@ -96,7 +96,7 @@ export class Lodging {
     return this._address;
   }
 
-  set address(value: string) {
+  setAddress(value: string) {
     this._address = value;
   }
 
@@ -104,7 +104,7 @@ export class Lodging {
     return this._pricePerDay;
   }
 
-  set pricePerDay(value: number) {
+  setPricePerDay(value: number) {
     this._pricePerDay = value;
   }
 
@@ -112,7 +112,7 @@ export class Lodging {
     return this._electricityBill;
   }
 
-  set electricityBill(value: number) {
+  setElectricityBill(value: number) {
     this._electricityBill = value;
   }
 
@@ -120,7 +120,7 @@ export class Lodging {
     return this._gasBill;
   }
 
-  set gasBill(value: number) {
+  setGasBill(value: number) {
     this._gasBill = value;
   }
 
@@ -128,7 +128,7 @@ export class Lodging {
     return this._telecommunicationBill;
   }
 
-  set telecommunicationBill(value: number) {
+  setTelecommunicationBill(value: number) {
     this._telecommunicationBill = value;
   }
 
@@ -136,7 +136,7 @@ export class Lodging {
     return this._cleaningCost;
   }
 
-  set cleaningCost(value: number) {
+  setCleaningCost(value: number) {
     this._cleaningCost = value;
   }
 
@@ -144,7 +144,7 @@ export class Lodging {
     return this._todos;
   }
 
-  set todos(value: Todo[]) {
+  setTodos(value: Todo[]) {
     this._todos = value;
   }
 
@@ -152,7 +152,7 @@ export class Lodging {
     return this._landLord;
   }
 
-  set landLord(value: User) {
+  setLandLord(value: User) {
     this._landLord = value;
   }
 
@@ -160,7 +160,7 @@ export class Lodging {
     return this._propertyManager;
   }
 
-  set propertyManager(value: User) {
+  setPropertyManager(value: User) {
     this._propertyManager = value;
   }
 }

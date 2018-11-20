@@ -29,4 +29,8 @@ export class LodgingDetailsComponent implements OnInit {
   get lodging(): Lodging {
     return this._lodging;
   }
+
+  deleteLodgings(){
+    this.lodgingsService.deleteLodgings(this.id);
+  }
 }

@@ -42,4 +42,13 @@ export class LodgingsService {
       return lodging.id === id;
     });
   }
+
+  lodgingsUpdated(){
+    this.lodgingsAdded.next(this.getAllLodgings().slice());
+  }
+
+  deleteLodgings(id: number) {
+    this.lodgings..splice(id - 1, 1);
+    this.lodgingsAdded.next(this.getAllLodgings().slice());
+  }
 }

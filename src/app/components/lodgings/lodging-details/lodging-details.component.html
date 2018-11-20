@@ -1,3 +1,72 @@
-<p>
-  lodging-details works!
-</p>
+<div id="add">
+  <div class="panel panel-default">
+    <div class="panel-heading"><b><a routerLink="/lodgings">My lodgings</a></b></div>
+    <div class="panel-body">
+      <ul>
+        <h4>Address</h4>
+        <li class="new-row">
+          <div class="new-column">
+            <span>Country:</span>
+            <span>{{lodging.country}}</span>
+          </div>
+        </li>
+        <li class="new-row">
+          <div class="new-column"><span>City: </span>
+            <span >{{lodging.city}}</span>
+          </div>
+        </li>
+        <li class="new-row">
+          <div class="new-column"><span>Zipcode:  </span><span >{{lodging.zipCode}}</span>
+          </div>
+        </li>
+        <li class="new-row">
+          <div class="new-column"><span>Address: </span><span >{{lodging.address}}</span>
+          </div>
+        </li>
+        <h4>Overhead Costs</h4>
+        <li class="new-row">
+          <div class="new-column"><span>Daily Price:  </span>
+            <span>{{lodging.pricePerDay}}</span>
+          </div>
+
+        </li>
+        <li class="new-row">
+          <div class="new-column"><span>Electricity Bill: </span>
+            <span >{{lodging.electricityBill}}</span>
+          </div>
+        </li>
+        <li class="new-row">
+          <div class="new-column"><span>Gasbill: </span>
+            <span >{{lodging.gasBill}}</span>
+          </div>
+        </li>
+        <li class="new-row">
+          <div class="new-column"><span>Telecommunication Bill: </span>
+            <span >{{lodging.telecommunicationBill}}l</span>
+          </div>
+        </li>
+        <li class="new-row">
+          <div class="new-column"><span>Cleaning Cost:  </span><span
+           >{{lodging.cleaningCost}}</span>
+          </div>
+        </li>
+        <li class="new-row">
+          <div class="new-column"><span>Landlord's full name: </span><span
+            >{{lodging.landLord}}</span>
+          </div>
+        </li>
+        <li class="new-row">
+          <div class="new-column"><span>Property Manager's full name: </span>
+            <span>{{lodging.propertyManager}}</span>
+          </div>
+        </li>
+
+      </ul>
+
+      <a  [routerLink]="['edit']" class="btn btn-sm btn-info" name="lodgingsId">Edit</a>
+      <a  [routerLink]="['delete']" class="btn btn-sm btn-info" name="lodgingsId">Delete</a>
+      <a  [routerLink]="['/todos', lodging.id, 'add']" class="btn btn-sm btn-info" name="lodgingsId">Add Todo</a>
+
+    </div>
+  </div>
+</div>

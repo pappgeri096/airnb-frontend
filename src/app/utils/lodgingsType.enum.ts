@@ -3,5 +3,4 @@ export enum LodgingsType {
   FAMILY_HOUSE = 'FAMILY_HOUSE',
   ROOM = 'ROOM',
   PENTHOUSE = 'PENTHOUSE'
-
 }

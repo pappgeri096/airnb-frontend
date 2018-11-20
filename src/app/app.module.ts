@@ -14,6 +14,7 @@ import { TodoComponent } from './components/todos/todo/todo.component';
 import { LodgingAddComponent } from './components/lodgings/lodging-add/lodging-add.component';
 import { UserLodgingsComponent } from './components/users/user-lodgings/user-lodgings.component';
 import {FormsModule} from '@angular/forms';
+import { LodgingEditComponent } from './lodgings/lodging-edit/lodging-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {FormsModule} from '@angular/forms';
     LodgingDetailsComponent,
     TodoComponent,
     LodgingAddComponent,
-    UserLodgingsComponent
+    UserLodgingsComponent,
+    LodgingEditComponent
   ],
   imports: [
     BrowserModule,

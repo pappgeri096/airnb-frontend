@@ -23,7 +23,7 @@ export class LodgingsService {
       .setLodgingsType(LodgingsType.FAMILY_HOUSE)
       .setCountry('Hungary')
       .setCity('Szeged')
-      .build(),
+      .build()
   ];
 
   constructor() { }
@@ -35,5 +35,11 @@ export class LodgingsService {
   addLodgings(lodging: Lodging){
     this.lodgings.push(lodging);
     this.lodgingsAdded.next(this.getAllLodgings().slice());
+  }
+
+  findById(id: number) {
+    return this.lodgings.find((lodging: Lodging) => {
+      return lodging.id === id;
+    });
   }
 }

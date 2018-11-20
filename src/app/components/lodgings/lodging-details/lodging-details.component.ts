@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {LodgingsService} from '../../../services/lodgings/lodgings.service';
 import {Lodging} from '../../../models/lodging.model';
 
@@ -13,7 +13,7 @@ export class LodgingDetailsComponent implements OnInit {
   private id: number;
   private _lodging: Lodging;
 
-  constructor(private route: ActivatedRoute, private lodgingsService: LodgingsService) { }
+  constructor(private route: ActivatedRoute, private lodgingsService: LodgingsService, private router: Router) { }
 
   ngOnInit() {
     this.route.params.
@@ -32,5 +32,6 @@ export class LodgingDetailsComponent implements OnInit {
 
   deleteLodgings(){
     this.lodgingsService.deleteLodgings(this.id);
+    this.router.navigate(['lodgings']);
   }
 }

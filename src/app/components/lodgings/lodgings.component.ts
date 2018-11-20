@@ -15,7 +15,7 @@ export class LodgingsComponent implements OnInit {
 
   ngOnInit() {
     this._lodgings = this.lodgingsService.getAllLodgings();
-    this.lodgingsService.lodgingsAdded.subscribe(
+    this.lodgingsService.lodgingsChanged.subscribe(
       (lodgings: Lodging[]) => {
         this._lodgings = lodgings;
     }

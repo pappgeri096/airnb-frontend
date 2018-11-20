@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import {Lodging} from '../../models/lodging.model';
 import {LodgingsBuilder} from '../../models/builders/lodgings.builder';
 import {LodgingsType} from '../../utils/lodgingsType.enum';
+import {Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LodgingsService {
+
+  lodgingsAdded = new Subject<Lodging[]>();
 
   private lodgings: Lodging[] = [
     new LodgingsBuilder(1)
@@ -27,5 +30,10 @@ export class LodgingsService {
 
   getAllLodgings() {
     return this.lodgings.slice();
+  }
+
+  addLodgings(lodging: Lodging){
+    this.lodgings.push(lodging);
+    this.lodgingsAdded.next(this.getAllLodgings().slice());
   }
 }

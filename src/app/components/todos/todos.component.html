@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Lodgings name</th>
+      <th>ToDo</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Deadline</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let todo of todos">
+    <tr>
+      <td>DAS</td>
+      <td>{{todo.name}}</td>
+      <td>{{todo.deadline}}</td>
+      <td>{{todo.description}}</td>
+      <td>{{todo.price}}</td>
+      <td>{{todo.status}}</td>
+    </tr>
+  </tbody>
+</table>

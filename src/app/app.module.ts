@@ -1,0 +1,40 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+import { LodgingsComponent } from './components/lodgings/lodgings.component';
+import { LodgingComponent } from './components/lodgings/lodging/lodging.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { UsersComponent } from './components/users/users.component';
+import { TodosComponent } from './components/todos/todos.component';
+import { LodgingDetailsComponent } from './components/lodgings/lodging-details/lodging-details.component';
+import {AppRoutingModule} from './modules/app-routing/app-routing.module';
+import { TodoComponent } from './components/todos/todo/todo.component';
+import { LodgingAddComponent } from './components/lodgings/lodging-add/lodging-add.component';
+import { UserLodgingsComponent } from './components/users/user-lodgings/user-lodgings.component';
+import {FormsModule} from '@angular/forms';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    LodgingsComponent,
+    LodgingComponent,
+    HeaderComponent,
+    FooterComponent,
+    UsersComponent,
+    TodosComponent,
+    LodgingDetailsComponent,
+    TodoComponent,
+    LodgingAddComponent,
+    UserLodgingsComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

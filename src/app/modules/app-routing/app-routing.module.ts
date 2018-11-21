@@ -13,12 +13,14 @@ const appRoutes = [
   {path: '', redirectTo: '/lodgings', pathMatch: 'full'},
   {path: 'lodgings', component: LodgingsComponent},
   {path: 'todos', component: TodosComponent},
+  {path: 'todos/:id/edit', component: TodosComponent},
+  {path: 'todos/:lodging_id//add', component: TodosComponent},
   {path: 'lodgings/:id/add', component: LodgingAddComponent},
   {path: 'lodgings/:id/edit', component: LodgingEditComponent},
   {path: 'lodgings/:id', component: LodgingDetailsComponent},
-  {path: 'users/:id/lodgings', component: UserLodgingsComponent},
-  {path: 'users/:id', component: UsersComponent},
-  {path: 'users/:id/edit', component: UserEditComponent}
+  {path: 'user/lodgings', component: UserLodgingsComponent},
+  {path: 'user', component: UsersComponent},
+  {path: 'user/edit', component: UserEditComponent}
 ];
 
 @NgModule({

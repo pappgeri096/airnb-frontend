@@ -9,28 +9,21 @@ import {Todo} from '../../models/todo.model';
 })
 export class UsersService {
 
-  private _users: User[] = [
-    new UserBuilder(1).setCity('Budapest').builder()
-  ];
+  private _user: User = new UserBuilder(1).setCity('Budapest').builder();
 
   usersChanged = new Subject<User[]>();
 
   constructor() { }
 
-  getUsers(): User[] {
-    return this._users.slice();
-  }
-
   getUserById(id: number): User {
-    return this._users.find((user: User) => {
-      return user.id === id;
-    });
+    return null;
   }
 
   deleteUser(id: number) {
     const userToRemove: User = this.getUserById(id);
-    this._users = this._users.filter((user: User) => {
-      return user !== userToRemove;
-    });
+  }
+
+  getUser() {
+    return this._user;
   }
 }

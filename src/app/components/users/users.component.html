@@ -23,7 +23,7 @@
         <span>{{user.address}}</span></li>
     </ul>
 
-      <button class="btn btn-info">Edit Profile</button>
+      <a [routerLink]="['edit']" class="btn btn-info">Edit Profile</a>
 
 
       <button class="btn btn-secondary" name="userId" (click)="deleteUser()">Delete profile</button>

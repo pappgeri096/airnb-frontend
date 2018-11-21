@@ -35,4 +35,8 @@ export class TodosService {
     this.todosChanged.next(this.getTodos().slice());
   }
 
+  addTodo(todo: Todo) {
+    this._todos.push(todo);
+    this.todosChanged.next(this.getTodos().slice());
+  }
 }

@@ -37,7 +37,7 @@ export class User{
     return this._id;
   }
 
-  set id(value: number) {
+  setId(value: number) {
     this._id = value;
   }
 
@@ -45,7 +45,7 @@ export class User{
     return this._longid;
   }
 
-  set longid(value: string) {
+  setLongid(value: string) {
     this._longid = value;
   }
 
@@ -53,7 +53,7 @@ export class User{
     return this._firstName;
   }
 
-  set firstName(value: string) {
+  setFirstName(value: string) {
     this._firstName = value;
   }
 
@@ -61,7 +61,7 @@ export class User{
     return this._surname;
   }
 
-  set surname(value: string) {
+  setSurname(value: string) {
     this._surname = value;
   }
 
@@ -69,7 +69,7 @@ export class User{
     return this._email;
   }
 
-  set email(value: string) {
+  setEmail(value: string) {
     this._email = value;
   }
 
@@ -77,7 +77,7 @@ export class User{
     return this._phoneNumber;
   }
 
-  set phoneNumber(value: string) {
+  setPhoneNumber(value: string) {
     this._phoneNumber = value;
   }
 
@@ -85,7 +85,7 @@ export class User{
     return this._country;
   }
 
-  set country(value: string) {
+  setCountry(value: string) {
     this._country = value;
   }
 
@@ -93,7 +93,7 @@ export class User{
     return this._city;
   }
 
-  set city(value: string) {
+  setCity(value: string) {
     this._city = value;
   }
 
@@ -101,7 +101,7 @@ export class User{
     return this._zipCode;
   }
 
-  set zipCode(value: string) {
+  setZipCode(value: string) {
     this._zipCode = value;
   }
 
@@ -109,7 +109,7 @@ export class User{
     return this._address;
   }
 
-  set address(value: string) {
+  setAddress(value: string) {
     this._address = value;
   }
 
@@ -117,7 +117,7 @@ export class User{
     return this._passwordHash;
   }
 
-  set passwordHash(value: string) {
+  setPasswordHash(value: string) {
     this._passwordHash = value;
   }
 
@@ -125,7 +125,7 @@ export class User{
     return this._propertyManagerLodgings;
   }
 
-  set propertyManagerLodgings(value: object) {
+  setPropertyManagerLodgings(value: object) {
     this._propertyManagerLodgings = value;
   }
 
@@ -133,7 +133,7 @@ export class User{
     return this._landlordLodgings;
   }
 
-  set landlordLodgings(value: object) {
+  setLandlordLodgings(value: object) {
     this._landlordLodgings = value;
   }
 }

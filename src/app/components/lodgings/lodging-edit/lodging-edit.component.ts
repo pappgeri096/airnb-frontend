@@ -33,18 +33,17 @@ export class LodgingEditComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    const lodging: Lodging = this.lodgingsService.findById(this.id);
-    lodging.setCity(form.value['city'])
-    lodging.setAddress(form.value['address'])
-    lodging.setCleaningCost((<number>form.value['cleaning_cost']))
-    lodging.setCountry(form.value['country'])
-    lodging .setElectricityBill(<number>form.value['electricity_bill'])
-    lodging .setGasBill(<number>form.value['gas_bill'])
-    lodging .setLodgingsType(LodgingsType.APARTMENT)
-    lodging.setName(form.value['lodging_name'])
-    lodging.setPricePerDay(<number>form.value['daily_price'])
-    lodging.setTelecommunicationBill(<number>form.value['telecommunication_bill'])
-    lodging.setZipCode(form.value['zip_code']);
+    this._lodging.setCity(form.value['city']);
+    this._lodging.setAddress(form.value['address']);
+    this._lodging.setCleaningCost((<number>form.value['cleaning_cost']));
+    this._lodging.setCountry(form.value['country']);
+    this._lodging.setElectricityBill(<number>form.value['electricity_bill']);
+    this._lodging.setGasBill(<number>form.value['gas_bill']);
+    this._lodging.setLodgingsType(LodgingsType.APARTMENT);
+    this._lodging.setName(form.value['lodging_name']);
+    this._lodging.setPricePerDay(<number>form.value['daily_price']);
+    this._lodging.setTelecommunicationBill(<number>form.value['telecommunication_bill']);
+    this._lodging.setZipCode(form.value['zip_code']);
     this.lodgingsService.lodgingsUpdated();
     this.router.navigate(['lodgings']);
   }

@@ -15,6 +15,7 @@ import { LodgingAddComponent } from './components/lodgings/lodging-add/lodging-a
 import { UserLodgingsComponent } from './components/users/user-lodgings/user-lodgings.component';
 import {FormsModule} from '@angular/forms';
 import { LodgingEditComponent } from './components/lodgings/lodging-edit/lodging-edit.component';
+import { UserEditComponent } from './components/users/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LodgingEditComponent } from './components/lodgings/lodging-edit/lodging
     TodoComponent,
     LodgingAddComponent,
     UserLodgingsComponent,
-    LodgingEditComponent
+    LodgingEditComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

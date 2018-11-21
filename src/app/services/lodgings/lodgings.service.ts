@@ -9,7 +9,7 @@ import {Subject} from 'rxjs';
 })
 export class LodgingsService {
 
-  lodgingsAdded = new Subject<Lodging[]>();
+  lodgingsChanged = new Subject<Lodging[]>();
 
   private lodgings: Lodging[] = [
     new LodgingsBuilder(1)
@@ -34,7 +34,7 @@ export class LodgingsService {
 
   addLodgings(lodging: Lodging){
     this.lodgings.push(lodging);
-    this.lodgingsAdded.next(this.getAllLodgings().slice());
+    this.lodgingsChanged.next(this.getAllLodgings().slice());
   }
 
   findById(id: number) {
@@ -44,11 +44,14 @@ export class LodgingsService {
   }
 
   lodgingsUpdated(){
-    this.lodgingsAdded.next(this.getAllLodgings().slice());
+    this.lodgingsChanged.next(this.getAllLodgings().slice());
   }
 
   deleteLodgings(id: number) {
-    this.lodgings..splice(id - 1, 1);
-    this.lodgingsAdded.next(this.getAllLodgings().slice());
+    const lodgingsToRemove: Lodging = this.findById(id);
+    this.lodgings = this.lodgings.filter((lodgings: Lodging) => {
+      return lodgings !== lodgingsToRemove;
+    });
+    this.lodgingsChanged.next(this.getAllLodgings().slice());
   }
 }

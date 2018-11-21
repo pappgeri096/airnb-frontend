@@ -7,6 +7,7 @@ import {UserLodgingsComponent} from '../../components/users/user-lodgings/user-l
 import {UsersComponent} from '../../components/users/users.component';
 import {LodgingDetailsComponent} from '../../components/lodgings/lodging-details/lodging-details.component';
 import {LodgingEditComponent} from '../../components/lodgings/lodging-edit/lodging-edit.component';
+import {UserEditComponent} from '../../components/users/user-edit/user-edit.component';
 
 const appRoutes = [
   {path: '', redirectTo: '/lodgings', pathMatch: 'full'},
@@ -16,7 +17,8 @@ const appRoutes = [
   {path: 'lodgings/:id/edit', component: LodgingEditComponent},
   {path: 'lodgings/:id', component: LodgingDetailsComponent},
   {path: 'users/:id/lodgings', component: UserLodgingsComponent},
-  {path: 'users/:id', component: UsersComponent}
+  {path: 'users/:id', component: UsersComponent},
+  {path: 'users/:id/edit', component: UserEditComponent}
 ];
 
 @NgModule({

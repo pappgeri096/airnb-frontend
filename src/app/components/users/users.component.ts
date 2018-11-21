@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UsersService} from '../../services/users/users.service';
 import {User} from '../../models/user.model';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -9,12 +10,28 @@ import {User} from '../../models/user.model';
 })
 export class UsersComponent implements OnInit {
 
-  user: User;
+  private _user: User;
+  private id: number;
 
-  constructor(private userService: UsersService) { }
+  constructor(private userService: UsersService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.user = this.userService.getUserById(1);
+    this.activatedRoute.params.
+    subscribe(
+      (params: Params) => {
+        this.id = +params['id'];
+        this._user = this.userService.getUserById(this.id);
+      }
+    );
   }
 
+
+  get user(): User {
+    return this._user;
+  }
+
+  deleteUser() {
+    this.userService.deleteUser(this.id);
+    this.router.navigate(['lodgings']);
+  }
 }

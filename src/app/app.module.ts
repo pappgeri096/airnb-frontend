@@ -16,6 +16,10 @@ import { UserLodgingsComponent } from './components/users/user-lodgings/user-lod
 import {FormsModule} from '@angular/forms';
 import { LodgingEditComponent } from './components/lodgings/lodging-edit/lodging-edit.component';
 import { UserEditComponent } from './components/users/user-edit/user-edit.component';
+import { TodoAddComponent } from './components/todos/todo-add/todo-add.component';
+import { TodoEditComponent } from './components/todos/todo-edit/todo-edit.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { UserEditComponent } from './components/users/user-edit/user-edit.compon
     LodgingAddComponent,
     UserLodgingsComponent,
     LodgingEditComponent,
-    UserEditComponent
+    UserEditComponent,
+    TodoAddComponent,
+    TodoEditComponent,
+    AuthComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

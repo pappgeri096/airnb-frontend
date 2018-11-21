@@ -8,13 +8,15 @@ import {UsersComponent} from '../../components/users/users.component';
 import {LodgingDetailsComponent} from '../../components/lodgings/lodging-details/lodging-details.component';
 import {LodgingEditComponent} from '../../components/lodgings/lodging-edit/lodging-edit.component';
 import {UserEditComponent} from '../../components/users/user-edit/user-edit.component';
+import {TodoAddComponent} from '../../components/todos/todo-add/todo-add.component';
+import {TodoEditComponent} from '../../components/todos/todo-edit/todo-edit.component';
 
 const appRoutes = [
   {path: '', redirectTo: '/lodgings', pathMatch: 'full'},
   {path: 'lodgings', component: LodgingsComponent},
   {path: 'todos', component: TodosComponent},
-  {path: 'todos/:id/edit', component: TodosComponent},
-  {path: 'todos/:lodging_id//add', component: TodosComponent},
+  {path: 'todos/:id/edit', component: TodoEditComponent},
+  {path: 'todos/:lodging_id/add', component: TodoAddComponent},
   {path: 'lodgings/:id/add', component: LodgingAddComponent},
   {path: 'lodgings/:id/edit', component: LodgingEditComponent},
   {path: 'lodgings/:id', component: LodgingDetailsComponent},

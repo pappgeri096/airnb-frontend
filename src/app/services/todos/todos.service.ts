@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Todo} from '../../models/todo.model';
 import {Lodging} from '../../models/lodging.model';
 import {Subject} from 'rxjs';
+import {LodgingsService} from '../lodgings/lodgings.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,11 @@ export class TodosService {
   todosChanged = new Subject<Todo[]>();
 
   private _todos: Todo[] = [
-    new Todo(1, 'Kill your neighbour', null, '1997', 'sadfasdfasdf', 244),
-    new Todo(2, 'code code code', null, '192343297', '3242342342', 244)
+    new Todo(1, 'Kill your neighbour', this.lodgingsService.getAllLodgings()[0], '1997', 'sadfasdfasdf', 244),
+    new Todo(2, 'code code code', this.lodgingsService.getAllLodgings()[0], '192343297', '3242342342', 244)
   ];
 
-  constructor() { }
+  constructor(private lodgingsService: LodgingsService) { }
 
   getTodos(): Todo[] {
     return this._todos.slice();

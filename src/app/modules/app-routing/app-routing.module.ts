@@ -10,6 +10,8 @@ import {LodgingEditComponent} from '../../components/lodgings/lodging-edit/lodgi
 import {UserEditComponent} from '../../components/users/user-edit/user-edit.component';
 import {TodoAddComponent} from '../../components/todos/todo-add/todo-add.component';
 import {TodoEditComponent} from '../../components/todos/todo-edit/todo-edit.component';
+import {RegisterComponent} from '../../components/auth/register/register.component';
+import {LoginComponent} from '../../components/auth/login/login.component';
 
 const appRoutes = [
   {path: '', redirectTo: '/lodgings', pathMatch: 'full'},
@@ -22,7 +24,9 @@ const appRoutes = [
   {path: 'lodgings/:id', component: LodgingDetailsComponent},
   {path: 'user/lodgings', component: UserLodgingsComponent},
   {path: 'user', component: UsersComponent},
-  {path: 'user/edit', component: UserEditComponent}
+  {path: 'user/edit', component: UserEditComponent},
+  {path: 'registration', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
 ];
 
 @NgModule({

@@ -24,6 +24,7 @@ export class Lodging {
 
   private _propertyManager: User;
 
+  private _user: User;
 
   constructor(lodgingsBuilder: LodgingsBuilder) {
     this._id = lodgingsBuilder.id;
@@ -41,6 +42,7 @@ export class Lodging {
     this._todos = lodgingsBuilder.todos;
     this._landLord = lodgingsBuilder.landLord;
     this._propertyManager = lodgingsBuilder.propertyManager;
+    this._user = lodgingsBuilder.user;
   }
 
 

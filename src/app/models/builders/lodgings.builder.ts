@@ -23,6 +23,7 @@ export class LodgingsBuilder {
   private _landLord: User;
 
   private _propertyManager: User;
+  private _user: User;
 
 
   constructor(id: number) {
@@ -161,6 +162,16 @@ export class LodgingsBuilder {
 
   setPropertyManager(value: User): LodgingsBuilder {
     this._propertyManager = value;
+    return this;
+  }
+
+
+  get user(): User {
+    return this._user;
+  }
+
+  setUser(value: User): LodgingsBuilder {
+    this._user = value;
     return this;
   }
 

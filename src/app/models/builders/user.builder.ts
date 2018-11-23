@@ -1,4 +1,6 @@
 import {User} from '../user.model';
+import {Lodging} from '../lodging.model';
+import {UserType} from '../../utils/userType.enum';
 
 export class UserBuilder {
   private _id: number;
@@ -10,10 +12,11 @@ export class UserBuilder {
   private _city: string;
   private _zipCode: string;
   private _address: string;
-  private _passwordHash: string;
+  private _password: string;
 
-  private _propertyManagerLodgings: object;
-  private _landlordLodgings: object;
+  private _propertyManagerLodgings: Lodging[];
+  private _landlordLodgings: Lodging[];
+  private _userType: UserType;
 
 
   constructor(id: number) {
@@ -102,32 +105,42 @@ export class UserBuilder {
     return this;
   }
 
-  get passwordHash(): string {
-    return this._passwordHash;
+  get password(): string {
+    return this._password;
   }
 
-  setPasswordHash(value: string): UserBuilder {
-    this._passwordHash = value;
+  setPassword(value: string): UserBuilder {
+    this._password = value;
     return this;
   }
 
-  get propertyManagerLodgings(): object {
+  get propertyManagerLodgings(): Lodging[] {
     return this._propertyManagerLodgings;
   }
 
-  setppropertyManagerLodgings(value: object): UserBuilder {
+  setppropertyManagerLodgings(value: Lodging[]): UserBuilder {
     this._propertyManagerLodgings = value;
     return this;
   }
 
-  get landlordLodgings(): object {
+  get landlordLodgings(): Lodging[] {
     return this._landlordLodgings;
   }
 
-  setLandlordLodgings(value: object): UserBuilder {
+  setLandlordLodgings(value: Lodging[]): UserBuilder {
     this._landlordLodgings = value;
     return this;
   }
+
+  get userType(): UserType {
+    return this._userType;
+  }
+
+  setUserType(value: UserType) : UserBuilder {
+    this._userType = value;
+    return this;
+  }
+
 
   builder(): User{
     return new User(this);

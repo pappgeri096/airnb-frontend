@@ -20,6 +20,8 @@ import { TodoAddComponent } from './components/todos/todo-add/todo-add.component
 import { TodoEditComponent } from './components/todos/todo-edit/todo-edit.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import {HttpModule} from '@angular/http';
+import { LoginComponent } from './components/auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +41,14 @@ import { RegisterComponent } from './components/auth/register/register.component
     TodoAddComponent,
     TodoEditComponent,
     AuthComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

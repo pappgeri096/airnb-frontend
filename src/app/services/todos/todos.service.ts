@@ -3,6 +3,7 @@ import {Todo} from '../../models/todo.model';
 import {Lodging} from '../../models/lodging.model';
 import {Subject} from 'rxjs';
 import {LodgingsService} from '../lodgings/lodgings.service';
+import {Http} from '@angular/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class TodosService {
     new Todo(2, 'code code code', this.lodgingsService.getAllLodgings()[0], '192343297', '3242342342', 244)
   ];
 
-  constructor(private lodgingsService: LodgingsService) { }
+  constructor(private lodgingsService: LodgingsService, private http: Http) { }
 
   getTodos(): Todo[] {
     return this._todos.slice();
@@ -39,5 +40,16 @@ export class TodosService {
   addTodo(todo: Todo) {
     this._todos.push(todo);
     this.todosChanged.next(this.getTodos().slice());
+  }
+
+  deleteLodgingsId(lodgingsId: number){
+    this._todos = this._todos.filter((todo: Todo) => {
+      return todo.lodgings.id !== lodgingsId;
+    });
+    this.todosChanged.next(this.getTodos().slice());
+  }
+
+  getTodosFromServer(){
+    return this.http.get('http://localhost:8080/api/todos');
   }
 }

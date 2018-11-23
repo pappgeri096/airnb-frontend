@@ -5,6 +5,7 @@ import {Lodging} from '../../../models/lodging.model';
 import {LodgingsBuilder} from '../../../models/builders/lodgings.builder';
 import {LodgingsService} from '../../../services/lodgings/lodgings.service';
 import {LodgingsType} from '../../../utils/lodgingsType.enum';
+import {UsersService} from '../../../services/users/users.service';
 
 @Component({
   selector: 'app-lodging-add',
@@ -13,7 +14,7 @@ import {LodgingsType} from '../../../utils/lodgingsType.enum';
 })
 export class LodgingAddComponent implements OnInit {
 
-  constructor(private router: Router, private lodgingService: LodgingsService) { }
+  constructor(private router: Router, private lodgingService: LodgingsService, private usersService: UsersService) { }
 
   ngOnInit() {
   }
@@ -33,6 +34,8 @@ export class LodgingAddComponent implements OnInit {
                               .setTelecommunicationBill(<number>form.value['telecommunication_bill'])
                               .setZipCode(form.value['zip_code'])
       .build();
+
+    this.usersService.addLodgings(lodging);
     this.lodgingService.addLodgings(lodging);
     this.router.navigate(['lodgings']);
   }

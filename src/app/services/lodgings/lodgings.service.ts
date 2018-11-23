@@ -3,6 +3,7 @@ import {Lodging} from '../../models/lodging.model';
 import {LodgingsBuilder} from '../../models/builders/lodgings.builder';
 import {LodgingsType} from '../../utils/lodgingsType.enum';
 import {Subject} from 'rxjs';
+import {Http} from '@angular/http';
 
 @Injectable({
   providedIn: 'root'
@@ -26,11 +27,12 @@ export class LodgingsService {
       .build()
   ];
 
-  constructor() { }
+  constructor(private http: Http) { }
 
   getAllLodgings() {
     return this.lodgings.slice();
   }
+
 
   addLodgings(lodging: Lodging){
     this.lodgings.push(lodging);
@@ -54,4 +56,13 @@ export class LodgingsService {
     });
     this.lodgingsChanged.next(this.getAllLodgings().slice());
   }
+
+  getLodgingsFromServer(){
+    return this.http.get('http://localhost:8080/api/lodgings2');
+  }
+
+  getLodgingsById(id: number){
+    return this.http.get('http://localhost:8080/api/lodgings/' + id.toString());
+  }
+
 }

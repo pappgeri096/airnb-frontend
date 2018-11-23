@@ -1,5 +1,5 @@
 import {Lodging} from './lodging.model';
-import {Status} from '../utils/Status.enum';
+import {Status} from '../utils/status.enum';
 
 export class Todo{
   private _id: number;

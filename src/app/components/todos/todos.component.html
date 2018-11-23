@@ -17,7 +17,7 @@
       <td>{{todo.deadline}}</td>
       <td>{{todo.description}}</td>
       <td>{{todo.price}}</td>
-      <td>{{todo.status}}</td>
+      <td>{{todo.status.toString()}}</td>
       <td><button class="btn btn-danger" (click)="deleteTodo(todo.id)">Delete</button></td>
     </tr>
   </tbody>

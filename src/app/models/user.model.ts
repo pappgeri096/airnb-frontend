@@ -1,4 +1,6 @@
 import {UserBuilder} from './builders/user.builder';
+import {Lodging} from './lodging.model';
+import {UserType} from '../utils/userType.enum';
 
 export class User{
   private _id: number;
@@ -12,9 +14,11 @@ export class User{
   private _zipCode: string;
   private _address: string;
   private _passwordHash: string;
+  private _userType: UserType;
+  private _lodgings: Lodging[];
 
-  private _propertyManagerLodgings: object;
-  private _landlordLodgings: object;
+  private _propertyManagerLodgings: Lodging[];
+  private _landlordLodgings: Lodging[];
 
 
   constructor(userBuilder: UserBuilder) {
@@ -27,9 +31,12 @@ export class User{
     this._city = userBuilder.city;
     this._zipCode = userBuilder.zipCode;
     this._address = userBuilder.address;
-    this._passwordHash = userBuilder.passwordHash;
+    this._passwordHash = userBuilder.password;
+    this._userType = userBuilder.userType;
     this._propertyManagerLodgings = userBuilder.propertyManagerLodgings;
     this._landlordLodgings = userBuilder.landlordLodgings;
+    this._userType = userBuilder.userType;
+    this._lodgings = [];
   }
 
 
@@ -121,19 +128,41 @@ export class User{
     this._passwordHash = value;
   }
 
-  get propertyManagerLodgings(): object {
+  get propertyManagerLodgings(): Lodging[] {
     return this._propertyManagerLodgings;
   }
 
-  setPropertyManagerLodgings(value: object) {
+  setPropertyManagerLodgings(value: Lodging[]) {
     this._propertyManagerLodgings = value;
   }
 
-  get landlordLodgings(): object {
+  get landlordLodgings(): Lodging[] {
     return this._landlordLodgings;
   }
 
-  setLandlordLodgings(value: object) {
+  setLandlordLodgings(value: Lodging[]) {
     this._landlordLodgings = value;
+  }
+
+
+  get userType(): UserType {
+    return this._userType;
+  }
+
+  setUserType(value: UserType) {
+    this._userType = value;
+  }
+
+  addLodging(lodging: Lodging) {
+    this._lodgings.push(lodging);
+  }
+
+
+  get lodgings(): Lodging[] {
+    return this._lodgings;
+  }
+
+  set lodgings(value: Lodging[]) {
+    this._lodgings = value;
   }
 }

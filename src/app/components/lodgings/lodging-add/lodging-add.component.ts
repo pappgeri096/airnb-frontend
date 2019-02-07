@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Lodging} from '../../../models/lodging.model';
-import {LodgingsBuilder} from '../../../models/builders/lodgings.builder';
 import {LodgingsService} from '../../../services/lodgings/lodgings.service';
 import {LodgingsType} from '../../../utils/lodgingsType.enum';
 import {UsersService} from '../../../services/users/users.service';
@@ -21,22 +20,6 @@ export class LodgingAddComponent implements OnInit {
 
   onSubmit(form: NgForm){
     console.log(form.value['address']);
-    const lodging: Lodging = new LodgingsBuilder(1)
-                              .setCity(form.value['city'])
-                              .setAddress(form.value['address'])
-                              .setCleaningCost((<number>form.value['cleaning_cost']))
-                              .setCountry(form.value['country'])
-                              .setElectricityBill(<number>form.value['electricity_bill'])
-                              .setGasBill(<number>form.value['gas_bill'])
-                              .setLodgingsType(LodgingsType.APARTMENT)
-                              .setName(form.value['lodging_name'])
-                              .setPricePerDay(<number>form.value['daily_price'])
-                              .setTelecommunicationBill(<number>form.value['telecommunication_bill'])
-                              .setZipCode(form.value['zip_code'])
-      .build();
-
-    this.usersService.addLodgings(lodging);
-    this.lodgingService.addLodgings(lodging);
     this.router.navigate(['lodgings']);
   }
 

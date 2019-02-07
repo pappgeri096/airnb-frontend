@@ -21,14 +21,6 @@ export class UserEditComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-      this._user.setFirstName(form.value['first_name']);
-      this._user.setSurname(form.value['surname']);
-      this._user.setPasswordHash(form.value['password']);
-      this._user.setPhoneNumber(form.value['phone_number']);
-      this._user.setCountry(form.value['country']);
-      this._user.setCity(form.value['city']);
-      this._user.setZipCode(form.value['zip_code']);
-      this._user.setAddress(form.value['address']);
       this.router.navigate(['/user']);
   }
 

@@ -26,19 +26,6 @@ export class TodoAddComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    const lodging = this.lodgingService.findById(this.lodgingId);
-    console.log(lodging);
-    console.log(form.value);
-    const todo: Todo = new Todo(
-      1,
-      form.value['name'],
-      lodging,
-      form.value['date'],
-      form.value['description'],
-      form.value['price']);
-
-    console.log(todo);
-    this.todoService.addTodo(todo);
     this.router.navigate(['/todos']);
   }
 }

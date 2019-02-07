@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Lodging} from '../../models/lodging.model';
-import {LodgingsBuilder} from '../../models/builders/lodgings.builder';
-import {LodgingsType} from '../../utils/lodgingsType.enum';
-import {Subject} from 'rxjs';
-import {Http} from '@angular/http';
+import {Observable, Subject} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,57 +10,14 @@ export class LodgingsService {
 
   lodgingsChanged = new Subject<Lodging[]>();
 
-  private lodgings: Lodging[] = [
-    new LodgingsBuilder(1)
-      .setName('sanyi')
-      .setLodgingsType(LodgingsType.APARTMENT)
-      .setCountry('Hungary')
-      .setCity('Budapest')
-      .build(),
-    new LodgingsBuilder(2)
-      .setName('laci')
-      .setLodgingsType(LodgingsType.FAMILY_HOUSE)
-      .setCountry('Hungary')
-      .setCity('Szeged')
-      .build()
-  ];
+  constructor(private http: HttpClient) { }
 
-  constructor(private http: Http) { }
-
-  getAllLodgings() {
-    return this.lodgings.slice();
+  getLodgingsFromServer(): Observable<Lodging[]> {
+    return this.http.get<Lodging[]>('http://localhost:8080/api/lodgings2');
   }
 
-
-  addLodgings(lodging: Lodging){
-    this.lodgings.push(lodging);
-    this.lodgingsChanged.next(this.getAllLodgings().slice());
-  }
-
-  findById(id: number) {
-    return this.lodgings.find((lodging: Lodging) => {
-      return lodging.id === id;
-    });
-  }
-
-  lodgingsUpdated(){
-    this.lodgingsChanged.next(this.getAllLodgings().slice());
-  }
-
-  deleteLodgings(id: number) {
-    const lodgingsToRemove: Lodging = this.findById(id);
-    this.lodgings = this.lodgings.filter((lodgings: Lodging) => {
-      return lodgings !== lodgingsToRemove;
-    });
-    this.lodgingsChanged.next(this.getAllLodgings().slice());
-  }
-
-  getLodgingsFromServer(){
-    return this.http.get('http://localhost:8080/api/lodgings2');
-  }
-
-  getLodgingsById(id: number){
-    return this.http.get('http://localhost:8080/api/lodgings/' + id.toString());
+  getLodgingsById(id: number): Observable<Lodging> {
+    return this.http.get<Lodging>('http://localhost:8080/api/lodgings/private-scoped' + id.toString());
   }
 
 }

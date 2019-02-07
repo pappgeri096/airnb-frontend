@@ -1,7 +1,6 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Lodgings name</th>
       <th>ToDo</th>
       <th>Description</th>
       <th>Price</th>
@@ -12,11 +11,10 @@
   </thead>
   <tbody *ngFor="let todo of todos">
     <tr>
-      <td>{{todo.lodgings.name}}</td>
       <td>{{todo.name}}</td>
-      <td>{{todo.deadline}}</td>
       <td>{{todo.description}}</td>
       <td>{{todo.price}}</td>
+      <td>{{todo.deadline}}</td>
       <td>{{todo.status.toString()}}</td>
       <td><button class="btn btn-danger" (click)="deleteTodo(todo.id)">Delete</button></td>
     </tr>

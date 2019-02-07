@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {LodgingsService} from '../../services/lodgings/lodgings.service';
 import {Lodging} from '../../models/lodging.model';
 import {UsersService} from '../../services/users/users.service';
-import {LodgingsBuilder} from '../../models/builders/lodgings.builder';
 
 @Component({
   selector: 'app-lodgings',
@@ -24,12 +23,8 @@ export class LodgingsComponent implements OnInit {
     // );
 
     this.lodgingsService.getLodgingsFromServer().subscribe((response) => {
-      const lodgings: Lodging[] = [];
-      const data = response.json();
-      for (let i = 0; i < data.length; i++) {
-        lodgings.push(new LodgingsBuilder(data[i]['id']).setName(data[i]['name']).build());
-      }
-      this._lodgings = lodgings;
+      this._lodgings = response;
+      console.log(response);
     });
   }
 
@@ -37,7 +32,7 @@ export class LodgingsComponent implements OnInit {
     return this._lodgings;
   }
 
-  public listLodgings(){
+  public listLodgings() {
     console.log(this.userService.getUser());
   }
 }

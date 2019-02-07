@@ -3,7 +3,6 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {LodgingsService} from '../../../services/lodgings/lodgings.service';
 import {Lodging} from '../../../models/lodging.model';
 import {TodosService} from '../../../services/todos/todos.service';
-import {LodgingsBuilder} from '../../../models/builders/lodgings.builder';
 
 @Component({
   selector: 'app-lodging-details',
@@ -21,25 +20,17 @@ export class LodgingDetailsComponent implements OnInit {
     this.route.params.
     subscribe(
       (params: Params) => {
+        console.log(params['id']);
         this.id = +params['id'];
       }
     );
 
     this.lodgingsService.getLodgingsById(this.id).subscribe((response) => {
-      const data = response.json()['data'];
-      const lodging: Lodging = new LodgingsBuilder(data['id'])
-                                .setAddress(data['address'])
-                                .setCity(data['city'])
-                                .setCountry(data['country'])
-                                .setAddress(data['address'])
-                                .setPricePerDay(data['pricePerDay'])
-                                .setTelecommunicationBill(data['telecommunicationBill'])
-                                .setGasBill(data['gasBill'])
-                                .setZipCode(data['zipCode'])
-                                .setCleaningCost(data['cleaningCost'])
-                                .setElectricityBill(data['electricityBill']).build();
-      this._lodging = lodging;
+      console.log(response);
+      this._lodging = response['data'];
     });
+
+    console.log(this._lodging)
   }
 
 
@@ -48,8 +39,6 @@ export class LodgingDetailsComponent implements OnInit {
   }
 
   deleteLodgings(){
-    this.todosService.deleteLodgingsId(this.id);
-    this.lodgingsService.deleteLodgings(this.id);
     this.router.navigate(['lodgings']);
   }
 }

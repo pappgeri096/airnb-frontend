@@ -4,7 +4,6 @@ import {User} from '../../models/user.model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {TodosService} from '../../services/todos/todos.service';
 import {LodgingsService} from '../../services/lodgings/lodgings.service';
-import {UserBuilder} from '../../models/builders/user.builder';
 
 @Component({
   selector: 'app-users',
@@ -22,19 +21,7 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
      this.userService.getUserFromDB().subscribe( (response) => {
-       const userData = response.json()['data'];
-       console.log(userData);
-       console.log(response.json());
-       this._user = new UserBuilder(userData['id'])
-         .setAddress(userData['address'])
-         .setCity(userData['city'])
-         .setCountry(userData['country'])
-         .setFirstName(userData['firstName'])
-         .setZipCode(userData['zipCode'])
-         .setEmail(userData['email'])
-         .setPhoneNumber(userData['phoneNumber'])
-         .setSurname(userData['surname'])
-         .builder();
+       this._user = response['data'];
      },
      (error) => {console.log(error); });
   }
@@ -45,7 +32,6 @@ export class UsersComponent implements OnInit {
   }
 
   deleteUser() {
-    this.userService.deleteUsersLodgings();
     this.userService.deleteUser(this.id);
     this.router.navigate(['lodgings']);
   }

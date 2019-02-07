@@ -18,10 +18,9 @@ import { LodgingEditComponent } from './components/lodgings/lodging-edit/lodging
 import { UserEditComponent } from './components/users/user-edit/user-edit.component';
 import { TodoAddComponent } from './components/todos/todo-add/todo-add.component';
 import { TodoEditComponent } from './components/todos/todo-edit/todo-edit.component';
-import { AuthComponent } from './components/auth/auth.component';
 import { RegisterComponent } from './components/auth/register/register.component';
-import {HttpModule} from '@angular/http';
 import { LoginComponent } from './components/auth/login/login.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,15 +39,14 @@ import { LoginComponent } from './components/auth/login/login.component';
     UserEditComponent,
     TodoAddComponent,
     TodoEditComponent,
-    AuthComponent,
     RegisterComponent,
     LoginComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    FormsModule,
-    HttpModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

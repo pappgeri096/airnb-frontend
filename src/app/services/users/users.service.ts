@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import {User} from '../../models/user.model';
-import {UserBuilder} from '../../models/builders/user.builder';
 import {Subject} from 'rxjs';
 import {Todo} from '../../models/todo.model';
 import {Lodging} from '../../models/lodging.model';
 import {LodgingsService} from '../lodgings/lodgings.service';
 import {Http} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class UsersService {
 
   usersChanged = new Subject<User[]>();
 
-  constructor(private lodgingsService: LodgingsService, private http: Http) {
+  constructor(private lodgingsService: LodgingsService, private http: HttpClient) {
 
   }
 
@@ -40,18 +40,6 @@ export class UsersService {
     return true;
   }
 
-  addLodgings(lodging: Lodging){
-    this._user.addLodging(lodging);
-  }
-
-  deleteUsersLodgings(){
-    const lodgings: Lodging[] = this._user.lodgings;
-    if (lodgings.length !== 0) {
-      for (let i = 0; i < lodgings.length; i++) {
-        this.lodgingsService.deleteLodgings(lodgings[i].id);
-      }
-    }
-  }
 
   getUserFromDB() {
      return this.http.get('http://localhost:8080/api/user');

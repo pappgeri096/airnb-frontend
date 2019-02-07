@@ -22,7 +22,6 @@ export class LodgingEditComponent implements OnInit {
     subscribe(
       (params: Params) => {
         this.id = +params['id'];
-        this._lodging = this.lodgingsService.findById(this.id);
       }
     );
   }
@@ -33,18 +32,7 @@ export class LodgingEditComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
-    this._lodging.setCity(form.value['city']);
-    this._lodging.setAddress(form.value['address']);
-    this._lodging.setCleaningCost((<number>form.value['cleaning_cost']));
-    this._lodging.setCountry(form.value['country']);
-    this._lodging.setElectricityBill(<number>form.value['electricity_bill']);
-    this._lodging.setGasBill(<number>form.value['gas_bill']);
-    this._lodging.setLodgingsType(LodgingsType.APARTMENT);
-    this._lodging.setName(form.value['lodging_name']);
-    this._lodging.setPricePerDay(<number>form.value['daily_price']);
-    this._lodging.setTelecommunicationBill(<number>form.value['telecommunication_bill']);
-    this._lodging.setZipCode(form.value['zip_code']);
-    this.lodgingsService.lodgingsUpdated();
+
     this.router.navigate(['lodgings']);
   }
 

@@ -31,7 +31,7 @@
           <label id="email-address-label" for="email-address">Email Address</label>
           <input id="email-address" class="form-control" name="email" type="email"
                  placeholder="pattern: som3thing@s0mething.som" required
-                 ngModel><br>
+                 ngModel email><br>
 
         </div>
 
@@ -41,7 +41,7 @@
 
 
         <label id="password-confirmation-label" for="password_confirmation">Confirm Password</label>
-        <input id="password_confirmation" class="form-control" type="password" name="password_confirmation" placeholder="has to match previous field value"
+        <input id="password_confirmation"  class="form-control" type="password" name="password_confirmation" placeholder="has to match previous field value"
                 required ngModel><br>
 
         <label for="phone-input">Phone Number</label>
@@ -67,7 +67,7 @@
                   required ngModel>
         </div>
 
-        <button value="Submit" id="submit" class="btn btn-primary btn-block" >Submit</button>
+        <button value="Submit" id="submit" class="btn btn-primary btn-block" [disabled]="!register.valid">Submit</button>
       </div>
     </form>
   </div>

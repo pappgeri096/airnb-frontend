@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {AuthService} from '../../../../../LodgingsOwn/frontend/src/app/services/auth/auth.service';
 
 const TOKEN_KEY = 'AuthToken';
 const USERNAME_KEY = 'AuthUsername';

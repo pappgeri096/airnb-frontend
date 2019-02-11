@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { JwtResponse } from '../../../../../LodgingsOwn/frontend/src/app/security/jwt-response';
-import { AuthLoginInfo } from '../../../../../LodgingsOwn/frontend/src/app/security/login-info';
-import { SignUpInfo } from '../../../../../LodgingsOwn/frontend/src/app/security/signup-info';
-import {TokenStorageService} from './token-storage.service';
-import {Token} from '@angular/compiler';
+
+import {TokenStorageService} from './token-storage/token-storage.service';
+import {JwtResponse} from '../../security/jwt-response';
+import {AuthLoginInfo} from '../../utils/login-info';
+import {SignUpInfo} from '../../utils/signup-info';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

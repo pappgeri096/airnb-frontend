@@ -53,7 +53,7 @@
         <label id="password-confirmation-label" for="password_confirmation">Confirm Password</label>
         <input id="password_confirmation"  class="form-control" type="password" name="password_confirmation" placeholder="has to match previous field value"
                  formControlName="password_confirmation" ><br>
-        <span *ngIf="(!registrationForm.get('password_confirmation').valid &&  registrationForm.get('password_confirmation').touched)
+        <span *ngIf=" (!registrationForm['MatchPassword'] && registrationForm.get('password_confirmation').touched) || (!registrationForm.get('password_confirmation').valid &&  registrationForm.get('password_confirmation').touched)
        " class="help-block">Please enter the same password! </span>
 
 

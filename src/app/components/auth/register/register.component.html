@@ -2,72 +2,99 @@
   <div class="col-lg-6 col-lg-offset-3">
     <h3 class="bg-success text-white p-5">Registration</h3>
     <div>Only letters of English alphabet, numbers and underscore can be used in registration input fields</div>
-    <form (ngSubmit)="onSubmit(register)" #register="ngForm" >
+    <form (ngSubmit)="onSubmit()" [formGroup]="registrationForm" >
       <div class="form-group mx-auto">
 
         <div>
           <label for="first-name">User Name</label>
           <input id="username" class="form-control" type="text" name="username"
                  placeholder="Length: minimum 1 maximum 255 characters"
-                  required ngModel>
+                   formControlName="username">
+          <span *ngIf="!registrationForm.get('username').valid && registrationForm.get('username').touched"
+                class="help-block">Please enter a valid username!</span>
         </div>
         <br>
 
         <div>
           <label for="first-name">First Name</label>
           <input id="first-name" class="form-control" type="text" name="first_name" placeholder="Length: minimum 1 maximum 255 characters"
-                  required ngModel>
+                   formControlName="first_name">
+          <span *ngIf="!registrationForm.get('first_name').valid && registrationForm.get('first_name').touched"
+                class="help-block">Please enter a valid first name!</span>
         </div>
         <br>
 
         <div>
           <label for="surname">Surname</label>
           <input id="surname" class="form-control" type="text" name="surname" placeholder="Length: minimum 1 maximum 255 characters"
-                 pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,255}$" required ngModel>
+                   formControlName="surname">
+          <span *ngIf="!registrationForm.get('surname').valid && registrationForm.get('surname').touched"
+                class="help-block">Please enter a valid surname!</span>
         </div>
         <br>
 
         <div>
           <label id="email-address-label" for="email-address">Email Address</label>
           <input id="email-address" class="form-control" name="email" type="email"
-                 placeholder="pattern: som3thing@s0mething.som" required
-                 ngModel email><br>
+                 placeholder="pattern: som3thing@s0mething.som"
+                 formControlName="email" >
+          <span *ngIf="!registrationForm.get('email').valid && registrationForm.get('email').touched"
+                class="help-block">Please enter a valid first name!</span>
 
         </div>
 
         <label for="password">Password (must contain at least  one UpperCase, LowerCase, Number/SpecialChar. Min 8 max 255 characterss)</label>
         <input id="password" class="form-control" type="password" name="password" placeholder="Length: minimum 1 maximum 255 characterss; e.g.: abc1Dfgh"
-                required ngModel><br>
+                 formControlName="password"><br>
+        <span *ngIf="!registrationForm.get('password').valid && registrationForm.get('password').touched"
+              class="help-block">Please enter a valid password!</span>
 
 
         <label id="password-confirmation-label" for="password_confirmation">Confirm Password</label>
         <input id="password_confirmation"  class="form-control" type="password" name="password_confirmation" placeholder="has to match previous field value"
-                required ngModel><br>
+                 formControlName="password_confirmation" ><br>
+        <span *ngIf="(!registrationForm.get('password_confirmation').valid &&  registrationForm.get('password_confirmation').touched)
+       " class="help-block">Please enter the same password! </span>
+
 
         <label for="phone-input">Phone Number</label>
         <input id="phone-input" class="form-control" type="tel" name="phone_number" placeholder="pattern: +36205561234"
-               pattern="[+]{1}[0-9]{7,254}" required ngModel><br>
+               pattern="[+]{1}[0-9]{7,254}"  formControlName="phone_number"><br>
+        <span *ngIf="!registrationForm.get('phone_number').valid && registrationForm.get('phone_number').touched"
+              class="help-block">Please enter a valid phone number</span>
 
-        <div class="form-group">
-
+        <div class="form-group" formGroupName="address">
           <label for="country-input">Country</label>
           <input id="country-input" class="form-control" type="text" name="country" placeholder="Length: minimum 1 maximum 255 characters"
-                  required ngModel><br>
+                 formControlName="country"><br>
+          <span *ngIf="!registrationForm.get('address.country').valid && registrationForm.get('address.country').touched"
+                class="help-block">Please enter a valid country</span>
 
           <label for="city-input">City</label>
           <input id="city-input" class="form-control" type="text" name="city" placeholder="Length: minimum 1 maximum 255 characters"
-                 required ngModel><br>
+                 formControlName="city"><br>
+
+          <span *ngIf="!registrationForm.get('address.city').valid && registrationForm.get('address.city').touched"
+                class="help-block">Please enter a valid country</span>
 
           <label for="zip-input">Zip code</label>
           <input id="zip-input" class="form-control" type="text" name="zip_code" placeholder="Length: minimum 1 maximum 255 characters"
-                  required ngModel><br>
+                 formControlName="zip_code"><br>
+
+          <span *ngIf="!registrationForm.get('address.zip_code').valid && registrationForm.get('address.zip_code').touched"
+                class="help-block">Please enter a valid country</span>
 
           <label for="address-input">Address</label>
           <input id="address-input" class="form-control" type="text" name="address" placeholder="Length: minimum 1 maximum 255 characters"
-                  required ngModel>
+                 formControlName="address">
+
+          <span *ngIf="!registrationForm.get('address.address').valid && registrationForm.get('address.address').touched"
+                class="help-block">Please enter a valid country</span>
+
         </div>
 
-        <button value="Submit" id="submit" class="btn btn-primary btn-block" [disabled]="!register.valid">Submit</button>
+        <button value="Submit" id="submit" class="btn btn-primary btn-block" [disabled]="!registrationForm.valid">Submit</button>
       </div>
     </form>
   </div>
+

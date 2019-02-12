@@ -17,7 +17,7 @@ export class LodgingsService {
   }
 
   getLodgingsById(id: number): Observable<Lodging> {
-    return this.http.get<Lodging>('http://localhost:8080/api/lodgings/private-scoped' + id.toString());
+    return this.http.get<Lodging>('http://localhost:8080/api/lodgings/' + id.toString());
   }
 
 }

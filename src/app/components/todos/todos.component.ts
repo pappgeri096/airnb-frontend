@@ -17,10 +17,10 @@ export class TodosComponent implements OnInit {
   constructor(private todosService: TodosService, private router: Router) { }
 
   ngOnInit() {
-    this.todosService.getTodosFromServer().subscribe( response =>{
+    this.todosService.getUserTodosFromServer().subscribe( response =>{
 
       console.log(response);
-       this._todos = response;
+        this._todos = response;
     });
 
 

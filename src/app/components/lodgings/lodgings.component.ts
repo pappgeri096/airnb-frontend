@@ -22,9 +22,8 @@ export class LodgingsComponent implements OnInit {
     // }
     // );
 
-    this.lodgingsService.getLodgingsFromServer().subscribe((response) => {
-      this._lodgings = response;
-      console.log(response);
+    this.lodgingsService.getUserLodgingsFromServer().subscribe((response) => {
+       this._lodgings = response;
     });
   }
 

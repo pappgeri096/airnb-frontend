@@ -27,7 +27,7 @@ export class LodgingDetailsComponent implements OnInit {
 
     this.lodgingsService.getLodgingsById(this.id).subscribe((response) => {
       console.log(response);
-      this._lodging = response['data'];
+      this._lodging = response;
     });
 
     console.log(this._lodging)

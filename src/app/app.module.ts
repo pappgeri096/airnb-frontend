@@ -21,6 +21,7 @@ import { TodoEditComponent } from './components/todos/todo-edit/todo-edit.compon
 import { RegisterComponent } from './components/auth/register/register.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {httpInterceptorProviders} from './security/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

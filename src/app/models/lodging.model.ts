@@ -19,7 +19,4 @@ export interface Lodging {
 
    todos: Todo[];
 
-   landlord: User;
-   propertyManager: User;
-   fullAddress: null;
 }

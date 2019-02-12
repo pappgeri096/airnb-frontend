@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {Lodging} from '../../models/lodging.model';
 import {Observable, Subject} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
-
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {TokenStorageService} from '../auth/token-storage/token-storage.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,10 +10,10 @@ export class LodgingsService {
 
   lodgingsChanged = new Subject<Lodging[]>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private tokenStorage: TokenStorageService) { }
 
-  getLodgingsFromServer(): Observable<Lodging[]> {
-    return this.http.get<Lodging[]>('http://localhost:8080/api/lodgings2');
+  getUserLodgingsFromServer(): Observable<Lodging[]> {
+    return this.http.get<Lodging[]>('http://localhost:8080/api/user/' + this.tokenStorage.getUsername() + '/lodgings');
   }
 
   getLodgingsById(id: number): Observable<Lodging> {

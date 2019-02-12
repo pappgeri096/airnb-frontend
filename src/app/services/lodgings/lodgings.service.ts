@@ -20,4 +20,7 @@ export class LodgingsService {
     return this.http.get<Lodging>('http://localhost:8080/api/lodgings/' + id.toString());
   }
 
+
+
+
 }

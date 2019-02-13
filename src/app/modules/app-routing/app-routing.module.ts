@@ -13,22 +13,23 @@ import {TodoEditComponent} from '../../components/todos/todo-edit/todo-edit.comp
 import {RegisterComponent} from '../../components/auth/register/register.component';
 import {LoginComponent} from '../../components/auth/login/login.component';
 import {LogoutComponent} from '../../components/auth/logout/logout.component';
+import {AuthGuardService} from '../../services/auth/auth-guard/auth-guard.service';
 
 const appRoutes = [
   {path: '', redirectTo: '/lodgings', pathMatch: 'full'},
-  {path: 'lodgings', component: LodgingsComponent},
-  {path: 'todos', component: TodosComponent},
-  {path: 'todos/:id/edit', component: TodoEditComponent},
-  {path: 'todos/:lodging_id/add', component: TodoAddComponent},
-  {path: 'lodgings/:id/add', component: LodgingAddComponent},
-  {path: 'lodgings/:id/edit', component: LodgingEditComponent},
-  {path: 'lodgings/:id', component: LodgingDetailsComponent},
-  {path: 'user/lodgings', component: UserLodgingsComponent},
-  {path: 'user', component: UsersComponent},
-  {path: 'user/edit', component: UserEditComponent},
+  {path: 'lodgings', canActivate: [AuthGuardService], component: LodgingsComponent},
+  {path: 'todos', canActivate: [AuthGuardService], component: TodosComponent},
+  {path: 'todos/:id/edit', canActivate: [AuthGuardService], component: TodoEditComponent},
+  {path: 'todos/:lodging_id/add', canActivate: [AuthGuardService], component: TodoAddComponent},
+  {path: 'lodgings/:id/add', canActivate: [AuthGuardService], component: LodgingAddComponent},
+  {path: 'lodgings/:id/edit', canActivate: [AuthGuardService], component: LodgingEditComponent},
+  {path: 'lodgings/:id', canActivate: [AuthGuardService], component: LodgingDetailsComponent},
+  {path: 'user/lodgings', canActivate: [AuthGuardService], component: UserLodgingsComponent},
+  {path: 'user', canActivate: [AuthGuardService], component: UsersComponent},
+  {path: 'user/edit', canActivate: [AuthGuardService], component: UserEditComponent},
   {path: 'registration', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'logout', component: LogoutComponent},
+  {path: 'logout', canActivate: [AuthGuardService], component: LogoutComponent},
 ];
 
 @NgModule({

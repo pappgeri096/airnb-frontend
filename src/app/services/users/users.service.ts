@@ -6,6 +6,7 @@ import {Lodging} from '../../models/lodging.model';
 import {LodgingsService} from '../lodgings/lodgings.service';
 import {Http} from '@angular/http';
 import {HttpClient} from '@angular/common/http';
+import {TokenStorageService} from '../auth/token-storage/token-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class UsersService {
 
   usersChanged = new Subject<User[]>();
 
-  constructor(private lodgingsService: LodgingsService, private http: HttpClient) {
+  constructor(private lodgingsService: LodgingsService, private http: HttpClient, private tokenStorage: TokenStorageService) {
 
   }
 
@@ -40,9 +41,8 @@ export class UsersService {
     return true;
   }
 
-
   getUserFromDB() {
-     return this.http.get('http://localhost:8080/api/user');
+     return this.http.get<User>('http://localhost:8080/api/user/' + this.tokenStorage.getUsername());
   }
 
 }

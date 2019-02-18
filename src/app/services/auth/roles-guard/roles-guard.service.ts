@@ -3,7 +3,6 @@ import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot} from '
 import {Observable} from 'rxjs';
 import {AuthService} from '../auth.service';
 import {TokenStorageService} from '../token-storage/token-storage.service';
-import decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +13,15 @@ export class RolesGuardService implements CanActivate{
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     const expectedRole = route.data.expectedRole;
-    const token = this.tokenStorage.getToken();
-    const decodeToken = decode(token);
+
+    console.log(this.auth.isLogedIn());
+    console.log(this.tokenStorage.hasRole(expectedRole));
 
     if (
       !this.auth.isLogedIn() ||
-      decodeToken.role !== expectedRole
+      !this.tokenStorage.hasRole(expectedRole)
     ) {
-      this.router.navigate(['/lodgings']);
+      this.router.navigate(['/login']);
       return false;
     }
     return true;

@@ -45,4 +45,9 @@ export class TokenStorageService {
 
     return this.roles;
   }
+
+  public hasRole(role: string): boolean{
+    console.log(this.getAuthorities());
+    return this.getAuthorities().includes(role);
+  }
 }

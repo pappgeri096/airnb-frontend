@@ -55,12 +55,12 @@ export class LodgingAddComponent implements OnInit {
     this.lodgingService.addLodgings(lodging).subscribe(
       (response) => {
         console.log(response);
+        this.router.navigate(['lodgings']);
       },
       (error) => {
         console.log(error);
       }
     );
-    //  this.router.navigate(['lodgings']);
   }
 
 }

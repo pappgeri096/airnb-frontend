@@ -30,7 +30,7 @@ export class LodgingDetailsComponent implements OnInit {
       this._lodging = response;
     });
 
-    console.log(this._lodging)
+    console.log(this._lodging);
   }
 
 
@@ -39,6 +39,17 @@ export class LodgingDetailsComponent implements OnInit {
   }
 
   deleteLodgings(){
-    this.router.navigate(['lodgings']);
+    this.lodgingsService.deleteLodgings(this._lodging.id).subscribe(
+      (response) => {
+        this.router.navigate(['lodgings']);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+
   }
+
+
 }

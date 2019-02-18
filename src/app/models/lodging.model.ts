@@ -1,15 +1,12 @@
-import {LodgingsType} from '../utils/lodgingsType.enum';
 import {Todo} from './todo.model';
 import {User} from './user.model';
+import {Address} from './address';
 
-export interface Lodging {
+export class Lodging {
    id: number;
    name: string;
-   LodgingsType: LodgingsType;
-   country: string;
-   city: string;
-   zipCode: string;
-   address: string;
+  lodgingsType: string;
+   fullAddress: Address;
 
    pricePerDay: number;
    electricityBill: number;

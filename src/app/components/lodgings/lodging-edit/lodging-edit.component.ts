@@ -3,7 +3,6 @@ import {Lodging} from '../../../models/lodging.model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {LodgingsService} from '../../../services/lodgings/lodgings.service';
 import {NgForm} from '@angular/forms';
-import {LodgingsType} from '../../../utils/lodgingsType.enum';
 
 @Component({
   selector: 'app-lodging-edit',

@@ -21,6 +21,7 @@ export class LodgingsService {
   }
 
 
-
-
+  addLodgings(lodging: Lodging) {
+    return this.http.post<Lodging>('http://localhost:8080/api/lodgings/' + this.tokenStorage.getUsername() + '/add', lodging);
+  }
 }

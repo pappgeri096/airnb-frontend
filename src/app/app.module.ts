@@ -24,6 +24,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {httpInterceptorProviders} from './security/auth-interceptor';
 import { LogoutComponent } from './components/auth/logout/logout.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

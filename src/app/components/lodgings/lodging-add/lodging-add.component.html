@@ -62,6 +62,10 @@
 
       <button form="add-lodgings-form" type="submit" value="Submit" id="submit" class="btn btn-primary btn-block"
       [disabled]="!addLodgingsForm.valid">Submit</button>
+
+      <div class="alert alert-danger" *ngIf="error">
+        <strong>Something went wrong!</strong> Please try again!.
+      </div>
     </div>
   </form>
 </div>

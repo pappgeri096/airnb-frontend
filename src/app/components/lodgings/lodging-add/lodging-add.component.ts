@@ -16,6 +16,7 @@ export class LodgingAddComponent implements OnInit {
   constructor(private router: Router, private lodgingService: LodgingsService, private usersService: UsersService) { }
 
   addLodgingsForm: FormGroup;
+  error = false;
 
   ngOnInit() {
     this.addLodgingsForm = new FormGroup({
@@ -55,10 +56,12 @@ export class LodgingAddComponent implements OnInit {
     this.lodgingService.addLodgings(lodging).subscribe(
       (response) => {
         console.log(response);
+        this.error = false;
         this.router.navigate(['lodgings']);
       },
       (error) => {
         console.log(error);
+        this.error = true;
       }
     );
   }

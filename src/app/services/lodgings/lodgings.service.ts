@@ -30,6 +30,6 @@ export class LodgingsService {
   }
 
   deleteLodgings(id: number) {
-    return this.http.delete<boolean>('http://localhost:8080/api/lodgings/' + id + '/delete');
+    return this.http.delete<string>('http://localhost:8080/api/lodgings/' + id + '/delete');
   }
 }

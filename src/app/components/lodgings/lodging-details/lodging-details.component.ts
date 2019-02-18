@@ -39,23 +39,17 @@ export class LodgingDetailsComponent implements OnInit {
   }
 
   deleteLodgings(){
-    if (this.isDeleted(this._lodging.id)) {
-      this.router.navigate(['lodgings']);
-    } else{
-      console.log('SOmething want wrong');
-    }
-
-
-  }
-
-  private isDeleted(id: number) {
-    this.lodgingsService.deleteLodgings(id).subscribe(
+    this.lodgingsService.deleteLodgings(this._lodging.id).subscribe(
       (response) => {
-        return response === 'true';
+        this.router.navigate(['lodgings']);
       },
       (error) => {
         console.log(error);
       }
     );
+
+
   }
+
+
 }

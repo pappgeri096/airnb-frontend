@@ -28,4 +28,8 @@ export class LodgingsService {
   updateLodgings(lodging: Lodging) {
     return this.http.put<Lodging>('http://localhost:8080/api/lodgings/' + lodging.id + '/update', lodging);
   }
+
+  deleteLodgings(id: number) {
+    return this.http.delete<boolean>('http://localhost:8080/api/lodgings/' + id + '/delete');
+  }
 }

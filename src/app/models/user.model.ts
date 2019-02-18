@@ -1,8 +1,5 @@
-import {UserType} from '../utils/userType.enum';
-import {Lodging} from './lodging.model';
 
-
-export interface User{
+export class User{
    address: string;
    city: string;
    country: string;

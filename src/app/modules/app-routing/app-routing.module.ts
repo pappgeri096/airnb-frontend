@@ -21,7 +21,7 @@ const appRoutes = [
   {path: 'todos', canActivate: [AuthGuardService], component: TodosComponent},
   {path: 'todos/:id/edit', canActivate: [AuthGuardService], component: TodoEditComponent},
   {path: 'todos/:lodging_id/add', canActivate: [AuthGuardService], component: TodoAddComponent},
-  {path: 'lodgings/:id/add', canActivate: [AuthGuardService], component: LodgingAddComponent},
+  {path: 'lodgings/add', canActivate: [AuthGuardService], component: LodgingAddComponent},
   {path: 'lodgings/:id/edit', canActivate: [AuthGuardService], component: LodgingEditComponent},
   {path: 'lodgings/:id', canActivate: [AuthGuardService], component: LodgingDetailsComponent},
   {path: 'user/lodgings', canActivate: [AuthGuardService], component: UserLodgingsComponent},

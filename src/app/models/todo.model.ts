@@ -1,7 +1,7 @@
 import {Lodging} from './lodging.model';
 import {Status} from '../utils/status.enum';
 
-  export interface Todo{
+  export class Todo{
      id: number;
      name: string;
      deadline: string;

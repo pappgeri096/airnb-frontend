@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {TodosService} from '../../services/todos/todos.service';
 import {Todo} from '../../models/todo.model';
 import {ActivatedRoute, Router} from '@angular/router';
-import {LodgingsType} from '../../utils/lodgingsType.enum';
-import {restoreBindingIndex} from '@angular/core/src/render3/instructions';
 
 @Component({
   selector: 'app-todos',

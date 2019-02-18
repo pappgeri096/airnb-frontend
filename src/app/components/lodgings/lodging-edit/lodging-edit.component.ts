@@ -57,17 +57,19 @@ export class LodgingEditComponent implements OnInit {
 
     const data = this.editForm.value;
 
-    const lodging: Lodging = new Lodging();
-    lodging.name = data['lodging_name'];
-    lodging.lodgingsType = data['lodging_type'];
-    lodging.pricePerDay = data['daily_price'];
-    lodging.electricityBill = data['electricity_bill'];
-    lodging.gasBill = data['gas_bill'];
-    lodging.telecommunicationBill = data['telecommunication_bill'];
-    lodging.cleaningCost = data['cleaning_cost'];
-    lodging.fullAddress = new Address(data['address']['country'], data['address']['city'], data['address']['zip_code'], data['address']['address']);
+    this._lodging.name = data['lodging_name'];
+    this._lodging.lodgingsType = data['lodging_type'];
+    this._lodging.pricePerDay = data['daily_price'];
+    this._lodging.electricityBill = data['electricity_bill'];
+    this._lodging.gasBill = data['gas_bill'];
+    this._lodging.telecommunicationBill = data['telecommunication_bill'];
+    this._lodging.cleaningCost = data['cleaning_cost'];
+    this._lodging.fullAddress.country = data['address']['country'];
+    this._lodging.fullAddress.city = data['address']['city'];
+    this._lodging.fullAddress.zipCode = data['address']['zip_code'];
+    this._lodging.fullAddress.address = data['address']['address'];
 
-    this.lodgingsService.updateLodgings(lodging).subscribe(
+    this.lodgingsService.updateLodgings(this._lodging).subscribe(
       (response) => {
         console.log(response);
         this.router.navigate(['/lodgings']);
@@ -81,6 +83,7 @@ export class LodgingEditComponent implements OnInit {
   private setLodgingsValues(id: number) {
     this.lodgingsService.getLodgingsById(this.id).subscribe(
       (lodging: Lodging) => {
+        this._lodging = lodging;
         this.editLodgings(lodging);
       }
     );

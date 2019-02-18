@@ -30,7 +30,7 @@ export class LodgingDetailsComponent implements OnInit {
       this._lodging = response;
     });
 
-    console.log(this._lodging)
+    console.log(this._lodging);
   }
 
 
@@ -51,7 +51,7 @@ export class LodgingDetailsComponent implements OnInit {
   private isDeleted(id: number) {
     this.lodgingsService.deleteLodgings(id).subscribe(
       (response) => {
-        return response;
+        return response === 'true';
       },
       (error) => {
         console.log(error);

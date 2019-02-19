@@ -1,35 +1,31 @@
 import { Injectable } from '@angular/core';
 import {Lodging} from '../../models/lodging.model';
-import {Observable, Subject} from 'rxjs';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 import {TokenStorageService} from '../auth/token-storage/token-storage.service';
 @Injectable({
   providedIn: 'root'
 })
 export class LodgingsService {
 
-  lodgingsChanged = new Subject<Lodging[]>();
-
   constructor(private http: HttpClient, private tokenStorage: TokenStorageService) { }
 
-  getUserLodgingsFromServer(): Observable<Lodging[]> {
-    return this.http.get<Lodging[]>('http://localhost:8080/api/user/' + this.tokenStorage.getUsername() + '/lodgings');
-  }
+  private baseUrl = 'http://localhost:8080/api/lodgings/';
 
   getLodgingsById(id: number): Observable<Lodging> {
-    return this.http.get<Lodging>('http://localhost:8080/api/lodgings/' + id.toString());
+    return this.http.get<Lodging>(this.baseUrl + id.toString());
   }
 
 
   addLodgings(lodging: Lodging) {
-    return this.http.post<Lodging>('http://localhost:8080/api/lodgings/' + this.tokenStorage.getUsername() + '/add', lodging);
+    return this.http.post<Lodging>(this.baseUrl + this.tokenStorage.getUsername() + '/add', lodging);
   }
 
   updateLodgings(lodging: Lodging) {
-    return this.http.put<Lodging>('http://localhost:8080/api/lodgings/' + lodging.id + '/update', lodging);
+    return this.http.put<Lodging>(this.baseUrl + lodging.id + '/update', lodging);
   }
 
   deleteLodgings(id: number) {
-    return this.http.delete<string>('http://localhost:8080/api/lodgings/' + id + '/delete');
+    return this.http.delete<string>(this.baseUrl + id + '/delete');
   }
 }

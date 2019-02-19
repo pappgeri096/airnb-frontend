@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Lodging} from '../../../models/lodging.model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {LodgingsService} from '../../../services/lodgings/lodgings.service';
-import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
-import {Address} from '../../../models/address';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-lodging-edit',
@@ -40,7 +39,7 @@ export class LodgingEditComponent implements OnInit {
     subscribe(
       (params: Params) => {
         this.id = +params['id'];
-        this.setLodgingsValues(this.id);
+        this.setLodgingsForm(this.id);
       }
     );
 
@@ -53,7 +52,7 @@ export class LodgingEditComponent implements OnInit {
     return this._lodging;
   }
 
-  onSubmit(){
+  onSubmit() {
 
     const data = this.editForm.value;
 
@@ -80,16 +79,16 @@ export class LodgingEditComponent implements OnInit {
     );
   }
 
-  private setLodgingsValues(id: number) {
-    this.lodgingsService.getLodgingsById(this.id).subscribe(
+  private setLodgingsForm(id: number) {
+    this.lodgingsService.getLodgingsById(id).subscribe(
       (lodging: Lodging) => {
         this._lodging = lodging;
-        this.editLodgings(lodging);
+        this.setLodgingsFormValues(lodging);
       }
     );
   }
 
-  private editLodgings(lodging: Lodging) {
+  private setLodgingsFormValues(lodging: Lodging) {
     this.editForm.setValue({
       'lodging_name': lodging.name,
       'lodging_type': lodging.lodgingsType,

@@ -3,7 +3,6 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {Lodging} from '../../../models/lodging.model';
 import {LodgingsService} from '../../../services/lodgings/lodgings.service';
-import {UsersService} from '../../../services/users/users.service';
 import {Address} from '../../../models/address';
 
 @Component({
@@ -13,7 +12,7 @@ import {Address} from '../../../models/address';
 })
 export class LodgingAddComponent implements OnInit {
 
-  constructor(private router: Router, private lodgingService: LodgingsService, private usersService: UsersService) { }
+  constructor(private router: Router, private lodgingService: LodgingsService) { }
 
   addLodgingsForm: FormGroup;
   error = false;
@@ -49,8 +48,6 @@ export class LodgingAddComponent implements OnInit {
     lodging.telecommunicationBill = data['telecommunication_bill'];
     lodging.cleaningCost = data['cleaning_cost'];
     lodging.fullAddress = new Address(data['address']['country'], data['address']['city'], data['address']['zip_code'], data['address']['address']);
-
-    // console.log(lodging.LodgingsType);
 
 
     this.lodgingService.addLodgings(lodging).subscribe(

@@ -17,7 +17,14 @@ export class UserEditComponent implements OnInit {
   constructor(private userService: UsersService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this._user = this.userService.getUserFromServer();
+    this.userService.getUserFromDB().subscribe(
+      (response) => {
+        this._user = response;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   onSubmit(form: NgForm) {

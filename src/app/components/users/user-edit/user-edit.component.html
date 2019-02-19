@@ -4,16 +4,6 @@
     <div class="form-group mx-auto">
 
       <div>
-        <label for="first-name">User Name</label>
-        <input id="username" class="form-control" type="text" name="username"
-               placeholder="Length: minimum 1 maximum 255 characters"
-               formControlName="username">
-        <span *ngIf="!editUserForm.get('username').valid && editUserForm.get('username').touched"
-              class="help-block">Please enter a valid username!</span>
-      </div>
-      <br>
-
-      <div>
         <label for="first-name">First Name</label>
         <input id="first-name" class="form-control" type="text" name="first_name" placeholder="Length: minimum 1 maximum 255 characters"
                formControlName="first_name">

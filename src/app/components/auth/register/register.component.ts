@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import {UsersService} from '../../../services/users/users.service';
 import {Router} from '@angular/router';
-import {SignUpInfo} from '../../../utils/signup-info';
+import {UserInfo} from '../../../utils/user-info';
 import {Address} from '../../../models/address';
 import {AuthService} from '../../../services/auth/auth.service';
 import {PasswordMatcher} from '../../../utils/PasswordMatcher';
@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(){
 
     const data = this.editUserForm.value;
-    const signUpFOrm = new SignUpInfo(
+    const signUpFOrm = new UserInfo(
       data['username'],
       data['first_name'],
       data['surname'],

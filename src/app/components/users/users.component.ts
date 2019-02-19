@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UsersService} from '../../services/users/users.service';
 import {User} from '../../models/user.model';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {TodosService} from '../../services/todos/todos.service';
 import {LodgingsService} from '../../services/lodgings/lodgings.service';
 
@@ -32,7 +32,7 @@ export class UsersComponent implements OnInit {
   }
 
   deleteUser() {
-    this.userService.deleteUser(this.id);
+
     this.router.navigate(['lodgings']);
   }
 

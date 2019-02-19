@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import {User} from '../../models/user.model';
-import {Subject} from 'rxjs';
-import {Todo} from '../../models/todo.model';
+import {Observable} from 'rxjs';
 import {Lodging} from '../../models/lodging.model';
 import {LodgingsService} from '../lodgings/lodgings.service';
-import {Http} from '@angular/http';
 import {HttpClient} from '@angular/common/http';
 import {TokenStorageService} from '../auth/token-storage/token-storage.service';
 
@@ -14,35 +12,23 @@ import {TokenStorageService} from '../auth/token-storage/token-storage.service';
 export class UsersService {
 
   private _user: User;
-
-  usersChanged = new Subject<User[]>();
+  private baseUrl = 'http://localhost:8080/api/user/';
 
   constructor(private lodgingsService: LodgingsService, private http: HttpClient, private tokenStorage: TokenStorageService) {
 
   }
 
-  getUserById(id: number): User {
-    return null;
+  getUserLodgingsFromServer(): Observable<Lodging[]> {
+    return this.http.get<Lodging[]>(this.baseUrl + this.tokenStorage.getUsername() + '/lodgings');
   }
 
-  deleteUser(id: number) {
-    const userToRemove: User = this.getUserById(id);
-  }
 
-  getUser() {
+  getUserFromServer() {
     return this._user;
   }
 
-  registerUser(user: User) {
-
-  }
-
-  loginUser(emaill: string, password: string) {
-    return true;
-  }
-
   getUserFromDB() {
-     return this.http.get<User>('http://localhost:8080/api/user/' + this.tokenStorage.getUsername());
+     return this.http.get<User>(this.baseUrl + this.tokenStorage.getUsername());
   }
 
 }

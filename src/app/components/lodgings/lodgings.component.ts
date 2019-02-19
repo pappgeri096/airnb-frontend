@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LodgingsService} from '../../services/lodgings/lodgings.service';
 import {Lodging} from '../../models/lodging.model';
+import {UsersService} from '../../services/users/users.service';
 
 
 @Component({
@@ -12,10 +13,10 @@ export class LodgingsComponent implements OnInit {
 
   private _lodgings: Lodging[];
 
-  constructor(private lodgingsService: LodgingsService) { }
+  constructor(private lodgingsService: LodgingsService, private userService: UsersService) { }
 
   ngOnInit() {
-    this.lodgingsService.getUserLodgingsFromServer().subscribe((response) => {
+    this.userService.getUserLodgingsFromServer().subscribe((response) => {
        this._lodgings = response;
     });
   }

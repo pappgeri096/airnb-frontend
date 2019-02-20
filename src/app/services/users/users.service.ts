@@ -6,6 +6,7 @@ import {LodgingsService} from '../lodgings/lodgings.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {TokenStorageService} from '../auth/token-storage/token-storage.service';
 import {UserInfo} from '../../utils/user-info';
+import {Todo} from '../../models/todo.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -28,8 +29,8 @@ export class UsersService {
   }
 
 
-  getUserFromServer() {
-    return this._user;
+  getUserTodosFromServer(): Observable<Todo[]> {
+    return this.http.get<Todo[]>(this.baseUrl + this.tokenStorage.getUsername() + '/todos');
   }
 
   getUserFromDB() {

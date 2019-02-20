@@ -35,7 +35,16 @@ export class TodoAddComponent implements OnInit {
 
   onSubmit(){
     const data = this.addTodoForm.value;
-    const todo = new Todo();
-    this.router.navigate(['/todos']);
-  }
+    const todo = new Todo(data['name'], data['date'], data['description'], data['price']);
+
+    this.todoService.addNewTodo(this.lodgingId, todo).subscribe(
+      () => {
+        this.router.navigate(['/todos']);
+      },
+      (error) => {
+        console.log(error);
+      }
+
+    );
+}
 }

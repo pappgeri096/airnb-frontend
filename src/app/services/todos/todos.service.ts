@@ -9,11 +9,11 @@ import {TokenStorageService} from '../auth/token-storage/token-storage.service';
   providedIn: 'root'
 })
 export class TodosService {
-  private baseUrl = 'http://localhost:8080/api/user/';
+  private baseUrl = 'http://localhost:8080/api/todos/';
 
-  constructor(private lodgingsService: LodgingsService, private http: HttpClient, private tokenStorage: TokenStorageService) { }
+  constructor(private lodgingsService: LodgingsService, private http: HttpClient) { }
 
-  getUserTodosFromServer(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(this.baseUrl + this.tokenStorage.getUsername() + '/todos');
+  addNewTodo(lodgingsId: number, todo: Todo) {
+    return this.http.post<string>(this.baseUrl + lodgingsId + '/add', todo);
   }
 }

@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import {UsersService} from '../../../services/users/users.service';
 import {Router} from '@angular/router';
-import {SignUpInfo} from '../../../utils/signup-info';
+import {UserInfo} from '../../../utils/user-info';
 import {Address} from '../../../models/address';
 import {AuthService} from '../../../services/auth/auth.service';
+import {PasswordMatcher} from '../../../utils/PasswordMatcher';
 
 @Component({
   selector: 'app-register',
@@ -15,10 +16,10 @@ export class RegisterComponent implements OnInit {
 
   constructor(private userService: UsersService, private router: Router, private authService: AuthService) { }
 
-  registrationForm: FormGroup;
+  editUserForm: FormGroup;
 
   ngOnInit() {
-    this.registrationForm = new FormGroup({
+    this.editUserForm = new FormGroup({
       'username': new FormControl(null, [Validators.required]),
       'first_name': new FormControl(null, [Validators.required]),
       'surname': new FormControl(null, [Validators.required]),
@@ -32,19 +33,19 @@ export class RegisterComponent implements OnInit {
         'zip_code': new FormControl(null, [Validators.required]),
         'address': new FormControl(null, [Validators.required])
       })
-    }, RegisterComponent.MatchPassword);
+    }, PasswordMatcher.MatchPassword);
   }
 
   onSubmit(){
 
-    const data = this.registrationForm.value;
-    const signUpFOrm = new SignUpInfo(
+    const data = this.editUserForm.value;
+    const signUpFOrm = new UserInfo(
       data['username'],
       data['first_name'],
       data['surname'],
       data['email'],
       data['phone_number'],
-      new Address(data['country'], data['city'], data['zip_code'], data['address']),
+      new Address(data['address']['country'], data['address']['city'], data['address']['zip_code'], data['address']['address']),
       data['password'],
     );
 
@@ -61,17 +62,7 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  static MatchPassword(AC: AbstractControl) {
-    let password = AC.get('password').value; // to get value in input tag
-    let confirmPassword = AC.get('password_confirmation').value; // to get value in input tag
-    if(password != confirmPassword) {
-      console.log(AC);
-      return {MatchPassword: false};
-    } else {
-      console.log('true');
-      return null;
-    }
-  }
+
 
 
 }

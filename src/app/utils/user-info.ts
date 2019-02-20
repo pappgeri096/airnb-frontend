@@ -6,7 +6,7 @@ export class UserInfo {
     surname: string;
     email: string;
     phoneNumber: string;
-    addressBuilder: Address;
+  address: Address;
     role: string[];
     password: string;
 
@@ -17,7 +17,7 @@ export class UserInfo {
     this.surname = surname;
     this.email = email;
     this.phoneNumber = phoneNumber;
-    this.addressBuilder = addressBuilder;
+    this.address = addressBuilder;
     this.role = ['user'];
     this.password = password;
   }

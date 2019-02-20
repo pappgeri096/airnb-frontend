@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
       data['surname'],
       data['email'],
       data['phone_number'],
-      new Address(data['country'], data['city'], data['zip_code'], data['address']),
+      new Address(data['address']['country'], data['address']['city'], data['address']['zip_code'], data['address']['address']),
       data['password'],
     );
 

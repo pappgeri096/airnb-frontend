@@ -25,6 +25,7 @@ export class UserEditComponent implements OnInit {
   ngOnInit() {
     this.userService.getUserFromDB().subscribe(
       (response) => {
+        console.log(response)
         this._user = response;
         this.setEditFormValues();
       },
@@ -52,12 +53,13 @@ export class UserEditComponent implements OnInit {
   onSubmit() {
 
     const data = this.editUserForm.value;
-    const userInfo = new UserInfo(null,
+    console.log(data);
+    const userInfo = new UserInfo('notuse',
       data['first_name'],
       data['surname'],
       data['email'],
       data['phone_number'],
-      new Address(data['country'], data['city'], data['zip_code'], data['address']),
+      new Address(data['address']['country'], data['address']['city'], data['address']['zip_code'], data['address']['address']),
       data['password'],
     );
 

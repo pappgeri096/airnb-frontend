@@ -37,8 +37,8 @@ export class UserEditComponent implements OnInit {
       'first_name': new FormControl(null, [Validators.required]),
       'surname': new FormControl(null, [Validators.required]),
       'email': new FormControl(null, [Validators.required, Validators.email]),
-      'password': new FormControl(null, []),
-      'password_confirmation': new FormControl(null, []),
+      'password': new FormControl(null ),
+      'password_confirmation': new FormControl(null),
       'phone_number': new FormControl(null, [Validators.required]),
       'address': new FormGroup({
         'country': new FormControl(null, [Validators.required]),
@@ -52,8 +52,7 @@ export class UserEditComponent implements OnInit {
   onSubmit() {
 
     const data = this.editUserForm.value;
-    const userInfo = new UserInfo(
-      data['username'],
+    const userInfo = new UserInfo(null,
       data['first_name'],
       data['surname'],
       data['email'],
@@ -78,7 +77,7 @@ export class UserEditComponent implements OnInit {
   }
 
   private setEditFormValues() {
-    this.editUserForm.setValue({
+    this.editUserForm.patchValue({
       'first_name': this._user.firstName,
       'surname': this._user.surname,
       'email': this._user.email,

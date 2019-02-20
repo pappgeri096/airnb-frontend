@@ -3,8 +3,13 @@ import {User} from '../../models/user.model';
 import {Observable} from 'rxjs';
 import {Lodging} from '../../models/lodging.model';
 import {LodgingsService} from '../lodgings/lodgings.service';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {TokenStorageService} from '../auth/token-storage/token-storage.service';
+import {UserInfo} from '../../utils/user-info';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -31,4 +36,7 @@ export class UsersService {
      return this.http.get<User>(this.baseUrl + this.tokenStorage.getUsername());
   }
 
+  updateUserInfo(userInfo: UserInfo) {
+    return this.http.put<User>(this.baseUrl + this.tokenStorage.getUsername() + '/update', userInfo);
+  }
 }

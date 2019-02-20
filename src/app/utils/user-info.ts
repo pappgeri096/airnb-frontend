@@ -1,6 +1,6 @@
 import {Address} from '../models/address';
 
-export class SignUpInfo {
+export class UserInfo {
     username: string;
     firstname: string;
     surname: string;
@@ -11,7 +11,7 @@ export class SignUpInfo {
     password: string;
 
 
-  constructor(username: string, firstname: string, surname: string, email: string, phoneNumber: string, addressBuilder: Address, password: string) {
+  constructor(username: string = null, firstname: string, surname: string, email: string, phoneNumber: string, addressBuilder: Address, password: string) {
     this.username = username;
     this.firstname = firstname;
     this.surname = surname;

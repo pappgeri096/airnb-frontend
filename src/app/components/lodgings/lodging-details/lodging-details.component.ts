@@ -52,4 +52,7 @@ export class LodgingDetailsComponent implements OnInit {
   }
 
 
+  addTodo() {
+    this.router.navigate(['/todos', this._lodging.id, 'add']);
+  }
 }

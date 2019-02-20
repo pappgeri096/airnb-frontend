@@ -39,4 +39,8 @@ export class UsersService {
   updateUserInfo(userInfo: UserInfo) {
     return this.http.put<User>(this.baseUrl + this.tokenStorage.getUsername() + '/update', userInfo);
   }
+
+  deleteUserFromDB() {
+    return this.http.delete<string>(this.baseUrl + this.tokenStorage.getUsername() + '/delete');
+  }
 }

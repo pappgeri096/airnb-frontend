@@ -4,6 +4,7 @@ import {User} from '../../models/user.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {TodosService} from '../../services/todos/todos.service';
 import {LodgingsService} from '../../services/lodgings/lodgings.service';
+import {AuthService} from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-users',
@@ -15,7 +16,9 @@ export class UsersComponent implements OnInit {
   private _user: User;
   private id: number;
 
-  constructor(private userService: UsersService, private todosService: TodosService, private lodgingsService: LodgingsService, private activatedRoute: ActivatedRoute, private router: Router) {
+  constructor(private userService: UsersService, private todosService: TodosService,
+              private lodgingsService: LodgingsService, private activatedRoute: ActivatedRoute,
+              private router: Router, private auth: AuthService) {
 
   }
 
@@ -32,8 +35,16 @@ export class UsersComponent implements OnInit {
   }
 
   deleteUser() {
+    this.userService.deleteUserFromDB().subscribe(
+      (response) => {
+        this.auth.signOut();
+        this.router.navigate(['/login']);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
 
-    this.router.navigate(['lodgings']);
   }
 
 

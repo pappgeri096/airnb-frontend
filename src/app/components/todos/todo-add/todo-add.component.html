@@ -18,7 +18,7 @@
       </div>
       <div>
         <label>Deadline</label>
-        <input type="date" name="date" class="form-control" id="date" required>
+        <input type="date" name="date" class="form-control" id="date" formControlName="date">
       </div>
       <br>
       <button value="Submit" id="submit" class="btn btn-primary btn-block" [disabled]="!addTodoForm.valid">Add</button>

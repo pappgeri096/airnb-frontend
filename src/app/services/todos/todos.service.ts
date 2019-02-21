@@ -3,7 +3,6 @@ import {Todo} from '../../models/todo.model';
 import {Observable} from 'rxjs';
 import {LodgingsService} from '../lodgings/lodgings.service';
 import {HttpClient} from '@angular/common/http';
-import {TokenStorageService} from '../auth/token-storage/token-storage.service';
 
 @Injectable({
   providedIn: 'root'

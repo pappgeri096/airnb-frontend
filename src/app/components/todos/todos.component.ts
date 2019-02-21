@@ -33,7 +33,7 @@ export class TodosComponent implements OnInit {
   deleteTodo(id: number) {
     this.todosService.deleteTodo(id).subscribe(
       () => {
-        this.router.navigate(['/todos']);
+        this.ngOnInit();
       },
       (error) => {
         console.log(error);

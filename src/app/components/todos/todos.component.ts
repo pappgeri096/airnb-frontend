@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TodosService} from '../../services/todos/todos.service';
 import {Todo} from '../../models/todo.model';
 import {ActivatedRoute, Router} from '@angular/router';
+import {UsersService} from '../../services/users/users.service';
 
 @Component({
   selector: 'app-todos',
@@ -12,10 +13,10 @@ export class TodosComponent implements OnInit {
 
   private _todos: Todo[];
 
-  constructor(private todosService: TodosService, private router: Router) { }
+  constructor(private todosService: TodosService, private router: Router, private userService: UsersService) { }
 
   ngOnInit() {
-    this.todosService.getUserTodosFromServer().subscribe( response =>{
+    this.userService.getUserTodosFromServer().subscribe( response =>{
 
       console.log(response);
         this._todos = response;

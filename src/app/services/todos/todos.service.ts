@@ -15,4 +15,8 @@ export class TodosService {
   addNewTodo(lodgingsId: number, todo: Todo) {
     return this.http.post<string>(this.baseUrl + lodgingsId + '/add', todo);
   }
+
+  deleteTodo(id: number) {
+    return this.http.delete<string>(this.baseUrl + id  + '/delete');
+  }
 }

@@ -32,8 +32,8 @@ export class TodosComponent implements OnInit {
 
   deleteTodo(id: number) {
     this.todosService.deleteTodo(id).subscribe(
-      () => {
-        this.ngOnInit();
+      (response) => {
+        if (response) { this.ngOnInit(); }
       },
       (error) => {
         console.log(error);

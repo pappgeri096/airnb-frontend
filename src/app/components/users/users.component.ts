@@ -37,8 +37,10 @@ export class UsersComponent implements OnInit {
   deleteUser() {
     this.userService.deleteUserFromDB().subscribe(
       (response) => {
-        this.auth.signOut();
-        this.router.navigate(['/login']);
+        if (response) {
+          this.auth.signOut();
+          this.router.navigate(['/login']);
+        }
       },
       (error) => {
         console.log(error);

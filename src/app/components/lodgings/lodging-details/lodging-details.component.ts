@@ -41,7 +41,7 @@ export class LodgingDetailsComponent implements OnInit {
   deleteLodgings(){
     this.lodgingsService.deleteLodgings(this._lodging.id).subscribe(
       (response) => {
-        this.router.navigate(['lodgings']);
+        if (response) {this.router.navigate(['lodgings']); }
       },
       (error) => {
         console.log(error);

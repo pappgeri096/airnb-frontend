@@ -13,10 +13,10 @@ export class TodosService {
   constructor(private lodgingsService: LodgingsService, private http: HttpClient) { }
 
   addNewTodo(lodgingsId: number, todo: Todo) {
-    return this.http.post<string>(this.baseUrl + lodgingsId + '/add', todo);
+    return this.http.post<string>(this.baseUrl + lodgingsId, todo);
   }
 
   deleteTodo(id: number) {
-    return this.http.delete<string>(this.baseUrl + id  + '/delete');
+    return this.http.delete<string>(this.baseUrl + id);
   }
 }

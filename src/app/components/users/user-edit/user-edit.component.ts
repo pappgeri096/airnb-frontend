@@ -65,7 +65,7 @@ export class UserEditComponent implements OnInit {
 
     this.userService.updateUserInfo(userInfo).subscribe(
       (response) => {
-        this.router.navigate(['/user']);
+        if (response) { this.router.navigate(['/user']); }
       },
       (error) => {
         console.log(error);

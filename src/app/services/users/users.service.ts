@@ -38,10 +38,10 @@ export class UsersService {
   }
 
   updateUserInfo(userInfo: UserInfo) {
-    return this.http.put<User>(this.baseUrl + this.tokenStorage.getUsername() + '/update', userInfo);
+    return this.http.put<User>(this.baseUrl + this.tokenStorage.getUsername(), userInfo);
   }
 
   deleteUserFromDB() {
-    return this.http.delete<string>(this.baseUrl + this.tokenStorage.getUsername() + '/delete');
+    return this.http.delete<string>(this.baseUrl + this.tokenStorage.getUsername());
   }
 }

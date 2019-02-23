@@ -18,14 +18,14 @@ export class LodgingsService {
 
 
   addLodgings(lodging: Lodging) {
-    return this.http.post<Lodging>(this.baseUrl + this.tokenStorage.getUsername() + '/add', lodging);
+    return this.http.post<Lodging>(this.baseUrl + this.tokenStorage.getUsername(), lodging);
   }
 
   updateLodgings(lodging: Lodging) {
-    return this.http.put<Lodging>(this.baseUrl + lodging.id + '/update', lodging);
+    return this.http.put<Lodging>(this.baseUrl + lodging.id, lodging);
   }
 
   deleteLodgings(id: number) {
-    return this.http.delete<string>(this.baseUrl + id + '/delete');
+    return this.http.delete<string>(this.baseUrl + id);
   }
 }

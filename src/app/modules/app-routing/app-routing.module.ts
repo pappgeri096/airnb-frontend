@@ -15,9 +15,11 @@ import {LoginComponent} from '../../components/auth/login/login.component';
 import {LogoutComponent} from '../../components/auth/logout/logout.component';
 import {AuthGuardService} from '../../services/auth/auth-guard/auth-guard.service';
 import {RolesGuardService} from '../../services/auth/roles-guard/roles-guard.service';
+import {DashboardComponent} from '../../components/dashboard/dashboard.component';
 
 const appRoutes = [
-  {path: '', redirectTo: '/lodgings', pathMatch: 'full'},
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: 'dashboard', canActivate: [AuthGuardService], component: DashboardComponent},
   {path: 'lodgings', canActivate: [AuthGuardService], component: LodgingsComponent},
   {path: 'todos', canActivate: [AuthGuardService], component: TodosComponent},
   {path: 'todos/:id/edit', canActivate: [AuthGuardService], component: TodoEditComponent},

@@ -1,0 +1,26 @@
+<h1>Hello, {{username}}</h1>
+
+<div>
+  <h3>User options</h3>
+  <ul class="list-group">
+    <li class="list-group-item"><a [routerLink]="['/lodgings']">Lodgings</a></li>
+    <li class="list-group-item"><a [routerLink]="['/user']">Profile</a></li>
+  </ul>
+</div>
+
+<div *ngIf="hasRole('ROLE_LANDLORD')">
+  <h3>Landlord Options</h3>
+  <ul class="list-group">
+    <li class="list-group-item"><a [routerLink]="['/lodgings/add']">Add new Lodgings</a></li>
+    <li class="list-group-item"><a [routerLink]="['/todos']">Check Todos</a></li>
+    <li class="list-group-item"><a [routerLink]="['/lodgings/pending-user']">Pending users</a></li>
+  </ul>
+</div>
+
+
+<div *ngIf="hasRole('ROLE_PROPERTY')">
+  <h3>Property Manager Options</h3>
+  <ul class="list-group">
+    <li><a [routerLink]="['/todos/', username]">Pending todos</a></li>
+  </ul>
+</div>

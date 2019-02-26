@@ -16,6 +16,13 @@ export class LodgingsService {
     return this.http.get<Lodging>(this.baseUrl + id.toString());
   }
 
+  getLodgingsByKeyword(keyword: string) {
+    return this.http.get<Lodging[]>(this.baseUrl + 'search/' + keyword);
+  }
+
+  getAllLodgings() {
+    return this.http.get<Lodging[]>(this.baseUrl + 'all');
+  }
 
   addLodgings(lodging: Lodging) {
     return this.http.post<Lodging>(this.baseUrl + this.tokenStorage.getUsername(), lodging);
@@ -28,4 +35,5 @@ export class LodgingsService {
   deleteLodgings(id: number) {
     return this.http.delete<string>(this.baseUrl + id);
   }
+
 }

@@ -1,0 +1,15 @@
+<form [formGroup]="searchForm">
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="keyword" placeholder="Type in something">
+  </div>
+  <div class="dropdown-state-container"></div>
+</form>
+
+<table class="table">
+  <div *ngFor="let lodging of lodgings | searchFilterPipe: getSearchValue()">
+    <tr>
+      <td>{{lodging.name}}</td>
+      <td><button class="btn btn-primary" (click)="sendRequest(lodging)">Send join request</button></td>
+    </tr>
+  </div>
+</table>

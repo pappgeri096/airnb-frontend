@@ -26,6 +26,7 @@ import { LogoutComponent } from './components/auth/logout/logout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PendingUserComponent } from './components/lodgings/pending-user/pending-user.component';
 import { NewLodgingsComponent } from './components/users/new-lodgings/new-lodgings.component';
+import { SearchFilterPipePipe } from './pipes/search-filter-pipe.pipe';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { NewLodgingsComponent } from './components/users/new-lodgings/new-lodgin
     DashboardComponent,
     PendingUserComponent,
     NewLodgingsComponent,
+    SearchFilterPipePipe,
   ],
   imports: [
     BrowserModule,

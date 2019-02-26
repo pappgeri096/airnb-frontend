@@ -25,6 +25,7 @@ import {httpInterceptorProviders} from './security/auth-interceptor';
 import { LogoutComponent } from './components/auth/logout/logout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PendingUserComponent } from './components/lodgings/pending-user/pending-user.component';
+import { NewLodgingsComponent } from './components/users/new-lodgings/new-lodgings.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { PendingUserComponent } from './components/lodgings/pending-user/pending
     LogoutComponent,
     DashboardComponent,
     PendingUserComponent,
+    NewLodgingsComponent,
   ],
   imports: [
     BrowserModule,

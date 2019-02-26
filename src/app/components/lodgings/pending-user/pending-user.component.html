@@ -1,3 +1,6 @@
-<p>
-  pending-user works!
-</p>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let pending of pendings">
+    {{pending.user.firstName}} {{pending.user.surname}} | {{pending.lodgings.name}} |
+    <button (click)="acceptUser(pending.id)" class="btn btn-success">Accept</button>
+  </li>
+</ul>

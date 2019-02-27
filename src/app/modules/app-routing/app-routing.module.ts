@@ -16,8 +16,6 @@ import {LogoutComponent} from '../../components/auth/logout/logout.component';
 import {AuthGuardService} from '../../services/auth/auth-guard/auth-guard.service';
 import {RolesGuardService} from '../../services/auth/roles-guard/roles-guard.service';
 import {DashboardComponent} from '../../components/dashboard/dashboard.component';
-import {PendingUserComponent} from '../../components/lodgings/pending-user/pending-user.component';
-import {NewLodgingsComponent} from '../../components/users/new-lodgings/new-lodgings.component';
 
 const appRoutes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -29,9 +27,7 @@ const appRoutes = [
   {path: 'lodgings/add', canActivate: [RolesGuardService], data: { expectedRole: 'ROLE_LANDLORD' }, component: LodgingAddComponent},
   {path: 'lodgings/:id/edit', canActivate: [RolesGuardService], data: { expectedRole: 'ROLE_LANDLORD' }  , component: LodgingEditComponent},
   {path: 'lodgings/:id', canActivate: [RolesGuardService], data: { expectedRole: 'ROLE_LANDLORD' }  , component: LodgingDetailsComponent},
-  {path: 'pendings', canActivate: [RolesGuardService], data: { expectedRole: 'ROLE_LANDLORD' }  , component: PendingUserComponent},
   {path: 'user/lodgings', canActivate: [AuthGuardService], component: UserLodgingsComponent},
-  {path: 'user/new-lodgings', canActivate: [AuthGuardService], component: NewLodgingsComponent},
   {path: 'user', canActivate: [AuthGuardService], component: UsersComponent},
   {path: 'user/edit', canActivate: [AuthGuardService], component: UserEditComponent},
   {path: 'registration', component: RegisterComponent},

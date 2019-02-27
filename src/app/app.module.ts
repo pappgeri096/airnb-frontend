@@ -13,7 +13,20 @@ import {AppRoutingModule} from './modules/app-routing/app-routing.module';
 import { TodoComponent } from './components/todos/todo/todo.component';
 import { LodgingAddComponent } from './components/lodgings/lodging-add/lodging-add.component';
 import { UserLodgingsComponent } from './components/users/user-lodgings/user-lodgings.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { LodgingEditComponent } from './components/lodgings/lodging-edit/lodging-edit.component';
+import { UserEditComponent } from './components/users/user-edit/user-edit.component';
+import { TodoAddComponent } from './components/todos/todo-add/todo-add.component';
+import { TodoEditComponent } from './components/todos/todo-edit/todo-edit.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {httpInterceptorProviders} from './security/auth-interceptor';
+import { LogoutComponent } from './components/auth/logout/logout.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { PendingUserComponent } from './components/lodgings/pending-user/pending-user.component';
+import { NewLodgingsComponent } from './components/users/new-lodgings/new-lodgings.component';
+
 
 @NgModule({
   declarations: [
@@ -27,14 +40,26 @@ import {FormsModule} from '@angular/forms';
     LodgingDetailsComponent,
     TodoComponent,
     LodgingAddComponent,
-    UserLodgingsComponent
+    UserLodgingsComponent,
+    LodgingEditComponent,
+    UserEditComponent,
+    TodoAddComponent,
+    TodoEditComponent,
+    RegisterComponent,
+    LoginComponent,
+    LogoutComponent,
+    DashboardComponent,
+    PendingUserComponent,
+    NewLodgingsComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

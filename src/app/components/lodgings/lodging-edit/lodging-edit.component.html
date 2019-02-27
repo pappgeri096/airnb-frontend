@@ -1,0 +1,71 @@
+<div class="col-lg-6 col-lg-offset-3">
+  <h3 class="bg-success text-white p-5">Edit lodgings</h3>
+  <form id="add-lodgings-form" (ngSubmit)="onSubmit()" [formGroup]="editForm">
+    <div class="form-group mx-auto">
+
+      <div>
+        <label for="lodging-name">Lodging name</label>
+        <input id="lodging-name" class="form-control" type="text" name="lodging_name" placeholder="Lodging Name"
+               required formControlName="lodging_name">
+      </div>
+      <br>
+
+      <div id="status_selection">
+        <label for="lodging-type">Choose lodging type: </label>
+        <select id="lodging-type" name="lodging_type"  class="form-control" formControlName="lodging_type">
+          <option value="APARTMENT" selected>Apartment</option>
+          <option value="FAMILY_HOUSE">Family house</option>
+          <option value="ROOM">Room</option>
+          <option value="PENTHOUSE">Penthouse</option>
+        </select>
+      </div>
+
+      <label for="lod-price">Daily price</label>
+      <input id="lod-price" class="form-control" type="text"  name="daily_price"
+             placeholder="Digits only. Length: 1-12"   required formControlName="daily_price"><br>
+
+      <label for="lod-electricity">Electricity Bill</label>
+      <input id="lod-electricity" class="form-control" type="text"  name="electricity_bill"
+             placeholder="Digits only. Length: 1-12"  required formControlName="electricity_bill"><br>
+
+      <label for="lod-gas">Gas Bill</label>
+      <input id="lod-gas" class="form-control" type="text"  name="gas_bill"
+             placeholder="Digits only. Length: 1-12"   required formControlName="gas_bill"><br>
+
+      <label for="lod-telecom">Telecommunication Bill</label>
+      <input id="lod-telecom" class="form-control" type="text"  name="telecommunication_bill"
+             placeholder="Digits only. Length: 1-12"   required formControlName="telecommunication_bill"><br>
+
+      <label for="lod-cleaning">Cleaning Cost</label>
+      <input id="lod-cleaning" class="form-control" type="text"  name="cleaning_cost"
+             placeholder="Digits only. Length: 1-12"   required formControlName="cleaning_cost"><br>
+
+      <div class="form-group" formGroupName="address">
+        <h3 class="bg-success text-white p-5">Address</h3>
+
+        <label for="lod-country">Country</label>
+        <input id="lod-country" class="form-control" type="text" name="country"
+               required formControlName="country"><br>
+
+        <label for="lod-city">City</label>
+        <input id="lod-city" class="form-control" type="text" name="city"
+               required formControlName="city"><br>
+
+        <label for="lod-zip">Zip code</label>
+        <input id="lod-zip" class="form-control" type="text" name="zip_code"
+               required formControlName="zip_code"><br>
+
+        <label for="lod-address">Address</label>
+        <input id="lod-address" class="form-control" type="text" name="address"
+               required formControlName="address"><br>
+      </div>
+
+      <button form="add-lodgings-form" type="submit" value="Submit" id="submit" class="btn btn-primary btn-block"
+              [disabled]="!editForm.valid">Update</button>
+
+      <div class="alert alert-danger" *ngIf="error">
+        <strong>Something went wrong!</strong> Please try again!.
+      </div>
+    </div>
+  </form>
+</div>

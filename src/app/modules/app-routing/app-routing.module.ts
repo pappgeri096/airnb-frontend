@@ -5,14 +5,38 @@ import {TodosComponent} from '../../components/todos/todos.component';
 import {LodgingAddComponent} from '../../components/lodgings/lodging-add/lodging-add.component';
 import {UserLodgingsComponent} from '../../components/users/user-lodgings/user-lodgings.component';
 import {UsersComponent} from '../../components/users/users.component';
+import {LodgingDetailsComponent} from '../../components/lodgings/lodging-details/lodging-details.component';
+import {LodgingEditComponent} from '../../components/lodgings/lodging-edit/lodging-edit.component';
+import {UserEditComponent} from '../../components/users/user-edit/user-edit.component';
+import {TodoAddComponent} from '../../components/todos/todo-add/todo-add.component';
+import {TodoEditComponent} from '../../components/todos/todo-edit/todo-edit.component';
+import {RegisterComponent} from '../../components/auth/register/register.component';
+import {LoginComponent} from '../../components/auth/login/login.component';
+import {LogoutComponent} from '../../components/auth/logout/logout.component';
+import {AuthGuardService} from '../../services/auth/auth-guard/auth-guard.service';
+import {RolesGuardService} from '../../services/auth/roles-guard/roles-guard.service';
+import {DashboardComponent} from '../../components/dashboard/dashboard.component';
+import {PendingUserComponent} from '../../components/lodgings/pending-user/pending-user.component';
+import {NewLodgingsComponent} from '../../components/users/new-lodgings/new-lodgings.component';
 
 const appRoutes = [
-  {path: '', redirectTo: '/lodgings', pathMatch: 'full'},
-  {path: 'lodgings', component: LodgingsComponent},
-  {path: 'todos', component: TodosComponent},
-  {path: 'lodgings/:id/add', component: LodgingAddComponent},
-  {path: 'users/:id/lodgings', component: UserLodgingsComponent},
-  {path: 'users/:id', component: UsersComponent}
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: 'dashboard', canActivate: [AuthGuardService], component: DashboardComponent},
+  {path: 'lodgings', canActivate: [AuthGuardService], component: LodgingsComponent},
+  {path: 'todos', canActivate: [AuthGuardService], component: TodosComponent},
+  {path: 'todos/:id/edit', canActivate: [AuthGuardService], component: TodoEditComponent},
+  {path: 'todos/:lodging_id/add', canActivate: [AuthGuardService], component: TodoAddComponent},
+  {path: 'lodgings/add', canActivate: [RolesGuardService], data: { expectedRole: 'ROLE_LANDLORD' }, component: LodgingAddComponent},
+  {path: 'lodgings/:id/edit', canActivate: [RolesGuardService], data: { expectedRole: 'ROLE_LANDLORD' }  , component: LodgingEditComponent},
+  {path: 'lodgings/:id', canActivate: [RolesGuardService], data: { expectedRole: 'ROLE_LANDLORD' }  , component: LodgingDetailsComponent},
+  {path: 'pendings', canActivate: [RolesGuardService], data: { expectedRole: 'ROLE_LANDLORD' }  , component: PendingUserComponent},
+  {path: 'user/lodgings', canActivate: [AuthGuardService], component: UserLodgingsComponent},
+  {path: 'user/new-lodgings', canActivate: [AuthGuardService], component: NewLodgingsComponent},
+  {path: 'user', canActivate: [AuthGuardService], component: UsersComponent},
+  {path: 'user/edit', canActivate: [AuthGuardService], component: UserEditComponent},
+  {path: 'registration', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'logout', canActivate: [AuthGuardService], component: LogoutComponent},
 ];
 
 @NgModule({

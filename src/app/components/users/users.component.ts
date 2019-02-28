@@ -13,7 +13,7 @@ import {AuthService} from '../../services/auth/auth.service';
 })
 export class UsersComponent implements OnInit {
 
-  private _user: User;
+  private _user: User = new User();
   private id: number;
 
   constructor(private userService: UsersService, private todosService: TodosService,

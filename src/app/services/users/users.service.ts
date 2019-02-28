@@ -28,6 +28,10 @@ export class UsersService {
     return this.http.get<Lodging[]>(this.baseUrl + this.tokenStorage.getUsername() + '/lodgings');
   }
 
+  getLandlordLodgingsFromServer(): Observable<Lodging[]> {
+    return this.http.get<Lodging[]>(this.baseUrl + this.tokenStorage.getUsername() + '/landlord');
+  }
+
 
   getUserTodosFromServer(): Observable<Todo[]> {
     return this.http.get<Todo[]>(this.baseUrl + this.tokenStorage.getUsername() + '/todos');

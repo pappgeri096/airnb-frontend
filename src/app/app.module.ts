@@ -24,8 +24,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {httpInterceptorProviders} from './security/auth-interceptor';
 import { LogoutComponent } from './components/auth/logout/logout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { PendingUserComponent } from './components/lodgings/pending-user/pending-user.component';
-import { NewLodgingsComponent } from './components/users/new-lodgings/new-lodgings.component';
+import {InviteComponent} from './components/invite/invite.component';
 
 
 @NgModule({
@@ -49,8 +48,7 @@ import { NewLodgingsComponent } from './components/users/new-lodgings/new-lodgin
     LoginComponent,
     LogoutComponent,
     DashboardComponent,
-    PendingUserComponent,
-    NewLodgingsComponent,
+    InviteComponent,
   ],
   imports: [
     BrowserModule,

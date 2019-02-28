@@ -24,6 +24,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {httpInterceptorProviders} from './security/auth-interceptor';
 import { LogoutComponent } from './components/auth/logout/logout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import {InviteComponent} from './components/invite/invite.component';
+import { IdtonamePipe } from './pipes/idtoname/idtoname.pipe';
+
 
 
 @NgModule({
@@ -46,7 +49,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     RegisterComponent,
     LoginComponent,
     LogoutComponent,
-    DashboardComponent
+    DashboardComponent,
+    InviteComponent,
+    IdtonamePipe
   ],
   imports: [
     BrowserModule,

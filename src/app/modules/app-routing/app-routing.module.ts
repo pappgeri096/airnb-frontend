@@ -16,6 +16,7 @@ import {LogoutComponent} from '../../components/auth/logout/logout.component';
 import {AuthGuardService} from '../../services/auth/auth-guard/auth-guard.service';
 import {RolesGuardService} from '../../services/auth/roles-guard/roles-guard.service';
 import {DashboardComponent} from '../../components/dashboard/dashboard.component';
+import {InviteComponent} from '../../components/invite/invite.component';
 
 const appRoutes = [
   {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -33,6 +34,7 @@ const appRoutes = [
   {path: 'registration', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'logout', canActivate: [AuthGuardService], component: LogoutComponent},
+  {path: 'invite', canActivate: [RolesGuardService], data: { expectedRole: 'ROLE_LANDLORD' }, component: InviteComponent}
 ];
 
 @NgModule({

@@ -3,6 +3,7 @@ import {Lodging} from '../../models/lodging.model';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {TokenStorageService} from '../auth/token-storage/token-storage.service';
+import {InviteForm} from '../../models/InviteForm';
 @Injectable({
   providedIn: 'root'
 })
@@ -27,5 +28,9 @@ export class LodgingsService {
 
   deleteLodgings(id: number) {
     return this.http.delete<string>(this.baseUrl + id);
+  }
+
+  sendNewEnvite(invite: InviteForm) {
+    return this.http.post<InviteForm>(this.baseUrl + 'invite', invite);
   }
 }

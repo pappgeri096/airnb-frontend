@@ -25,8 +25,6 @@ import {httpInterceptorProviders} from './security/auth-interceptor';
 import { LogoutComponent } from './components/auth/logout/logout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {InviteComponent} from './components/invite/invite.component';
-import { IdtonamePipe } from './pipes/idtoname/idtoname.pipe';
-
 
 
 @NgModule({
@@ -51,7 +49,6 @@ import { IdtonamePipe } from './pipes/idtoname/idtoname.pipe';
     LogoutComponent,
     DashboardComponent,
     InviteComponent,
-    IdtonamePipe
   ],
   imports: [
     BrowserModule,

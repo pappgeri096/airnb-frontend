@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {LodgingsService} from '../../../services/lodgings/lodgings.service';
 import {Lodging} from '../../../models/lodging.model';
@@ -82,5 +82,14 @@ export class LodgingDetailsComponent implements OnInit {
 
   isTodoDone(todo: Todo) {
     return todo.status === Status.DONE;
+  }
+
+  sortByStatus() {
+    this.lodging.todos.sort((a, b) => {
+      if (a.status === Status.DONE && b.status === Status.NEW) { return 1; }
+      if (a.status === Status.NEW && b.status === Status.DONE) { return -1; }
+      return 0;
+    });
+    return this.lodging.todos;
   }
 }

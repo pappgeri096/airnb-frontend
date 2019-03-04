@@ -70,7 +70,14 @@ export class LodgingDetailsComponent implements OnInit {
   }
 
   deleteToDo(id: number) {
-
+    this.todosService.deleteTodo(id).subscribe(
+      (response) => {
+        this.ngOnInit();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   isTodoDone(todo: Todo) {

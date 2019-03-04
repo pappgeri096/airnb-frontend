@@ -9,10 +9,12 @@ export class Todo{
      status: Status = Status.NEW;
 
 
-  constructor(name: string, deadline: string, description: string, price: number) {
+  constructor(id: number, name: string, deadline: string, description: string, price: number, status: Status) {
+    this.id = id;
     this.name = name;
     this.deadline = deadline;
     this.description = description;
     this.price = price;
+    this.status = status;
   }
 }

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {LodgingsService} from '../../../services/lodgings/lodgings.service';
 import {Lodging} from '../../../models/lodging.model';
 import {TodosService} from '../../../services/todos/todos.service';
+import {Todo} from '../../../models/todo.model';
+import {Status} from '../../../utils/status.enum';
 
 @Component({
   selector: 'app-lodging-details',
@@ -54,5 +56,40 @@ export class LodgingDetailsComponent implements OnInit {
 
   addTodo() {
     this.router.navigate(['/todos', this._lodging.id, 'add']);
+  }
+
+  markAsDone(todo: Todo) {
+    this.todosService.markTodoAsDone(todo).subscribe(
+      (response) => {
+        this.ngOnInit();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  deleteToDo(id: number) {
+    this.todosService.deleteTodo(id).subscribe(
+      (response) => {
+        this.ngOnInit();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  isTodoDone(todo: Todo) {
+    return todo.status === Status.DONE;
+  }
+
+  sortByStatus() {
+    this.lodging.todos.sort((a, b) => {
+      if (a.status === Status.DONE && b.status === Status.NEW) { return 1; }
+      if (a.status === Status.NEW && b.status === Status.DONE) { return -1; }
+      return 0;
+    });
+    return this.lodging.todos;
   }
 }

@@ -19,4 +19,8 @@ export class TodosService {
   deleteTodo(id: number) {
     return this.http.delete<string>(this.baseUrl + id);
   }
+
+  markTodoAsDone(todo: Todo) {
+    return this.http.put(this.baseUrl + todo.id, todo);
+  }
 }

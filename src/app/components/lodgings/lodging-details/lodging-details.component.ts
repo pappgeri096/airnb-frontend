@@ -58,8 +58,15 @@ export class LodgingDetailsComponent implements OnInit {
     this.router.navigate(['/todos', this._lodging.id, 'add']);
   }
 
-  markAsDone(id: number) {
-
+  markAsDone(todo: Todo) {
+    this.todosService.markTodoAsDone(todo).subscribe(
+      (response) => {
+        this.ngOnInit();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   deleteToDo(id: number) {

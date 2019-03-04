@@ -15,5 +15,7 @@ export class Lodging {
    cleaningCost: number;
 
    todos: Todo[];
+   landlord: User;
+   tenants: User;
 
 }

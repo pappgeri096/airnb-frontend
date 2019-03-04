@@ -3,6 +3,8 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {LodgingsService} from '../../../services/lodgings/lodgings.service';
 import {Lodging} from '../../../models/lodging.model';
 import {TodosService} from '../../../services/todos/todos.service';
+import {Todo} from '../../../models/todo.model';
+import {Status} from '../../../utils/status.enum';
 
 @Component({
   selector: 'app-lodging-details',
@@ -54,5 +56,17 @@ export class LodgingDetailsComponent implements OnInit {
 
   addTodo() {
     this.router.navigate(['/todos', this._lodging.id, 'add']);
+  }
+
+  markAsDone(id: number) {
+
+  }
+
+  deleteToDo(id: number) {
+
+  }
+
+  isTodoDone(todo: Todo) {
+    return todo.status === Status.DONE;
   }
 }

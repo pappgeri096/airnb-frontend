@@ -75,3 +75,29 @@
     </div>
   </div>
 </div>
+
+<div>
+  <h4>Lodgings Todos</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Deadline</th>
+        <th>Price</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of lodging.todos" [ngClass]="(isTodoDone(todo)) ? 'success' : 'warning'">
+        <td>{{todo.name}}</td>
+        <td>{{todo.description}}</td>
+        <td>{{todo.deadline}}</td>
+        <td>{{todo.price}}</td>
+        <td>{{todo.status}}</td>
+        <td><button class="btn btn-success" (click)="markAsDone(todo.id)">Mark</button></td>
+        <td><button class="btn btn-danger" (click)="deleteToDo(todo.id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

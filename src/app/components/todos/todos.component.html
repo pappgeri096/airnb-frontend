@@ -10,12 +10,13 @@
     </tr>
   </thead>
   <tbody *ngFor="let todo of todos">
-    <tr>
+    <tr [ngClass]="(!isTodoDone(todo)?'warning':'success')">
       <td>{{todo.name}}</td>
       <td>{{todo.description}}</td>
       <td>{{todo.price}}</td>
       <td>{{todo.deadline}}</td>
       <td>{{todo.status.toString()}}</td>
+      <td><button class="btn btn-success" (click)="markAsDone(todo)">Done</button></td>
       <td><button class="btn btn-danger" (click)="deleteTodo(todo.id)">Delete</button></td>
     </tr>
   </tbody>

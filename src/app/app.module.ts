@@ -24,6 +24,8 @@ import {httpInterceptorProviders} from './security/auth-interceptor';
 import { LogoutComponent } from './components/auth/logout/logout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {InviteComponent} from './components/invite/invite.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MaterialModule} from './material.module';
 
 
 @NgModule({
@@ -46,14 +48,16 @@ import {InviteComponent} from './components/invite/invite.component';
     LoginComponent,
     LogoutComponent,
     DashboardComponent,
-    InviteComponent,
+    InviteComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

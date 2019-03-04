@@ -3,6 +3,30 @@
     <div class="panel-heading"><b><a routerLink="/lodgings">{{lodging.name}}</a></b></div>
     <div class="panel-body">
       <ul>
+        <h4>Tenants</h4>
+        <span *ngIf="lodging.tenants!==null">
+        <li class="new-row">
+          <div class="new-column">
+            <span>Name:</span>
+            <span>{{lodging.tenants.firstName}} {{ lodging.tenants.surname }}</span>
+          </div>
+        </li>
+        <li>
+          <div class="new-column">
+            <span>Phone:</span>
+            <span>{{lodging.tenants.phoneNumber}}</span>
+          </div>
+        </li>
+        <li>
+          <div class="new-column">
+            <button class="btn btn-primary btn-danger" (click)="removeTenants(lodging.tenants)">Remove tenants</button>
+
+          </div>
+        </li>
+        </span>
+        <span *ngIf="lodging.tenants===null">
+          No tenants added yet
+        </span>
         <h4>Address</h4>
         <li class="new-row">
           <div class="new-column">
@@ -54,16 +78,7 @@
            >{{lodging.cleaningCost}}</span>
           </div>
         </li>
-        <!--<li class="new-row">-->
-          <!--<div class="new-column"><span>Landlord's full name: </span><span-->
-            <!--&gt;{{lodging.landLord}}</span>-->
-          <!--</div>-->
-        <!--</li>-->
-        <!--<li class="new-row">-->
-          <!--<div class="new-column"><span>Property Manager's full name: </span>-->
-            <!--<span>{{lodging.propertyManager}}</span>-->
-          <!--</div>-->
-        <!--</li>-->
+
 
       </ul>
 

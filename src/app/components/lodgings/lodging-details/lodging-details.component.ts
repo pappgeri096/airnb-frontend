@@ -5,6 +5,7 @@ import {Lodging} from '../../../models/lodging.model';
 import {TodosService} from '../../../services/todos/todos.service';
 import {Todo} from '../../../models/todo.model';
 import {Status} from '../../../utils/status.enum';
+import {User} from '../../../models/user.model';
 
 @Component({
   selector: 'app-lodging-details',
@@ -91,5 +92,16 @@ export class LodgingDetailsComponent implements OnInit {
       return 0;
     });
     return this.lodging.todos;
+  }
+
+  removeTenants(tenants: User) {
+    this.lodgingsService.removeTenants(tenants).subscribe(
+      (response) => {
+        this.ngOnInit();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

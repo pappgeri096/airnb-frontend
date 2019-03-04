@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { LodgingsComponent } from './components/lodgings/lodgings.component';
-import { LodgingComponent } from './components/lodgings/lodging/lodging.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UsersComponent } from './components/users/users.component';
@@ -31,7 +30,6 @@ import {InviteComponent} from './components/invite/invite.component';
   declarations: [
     AppComponent,
     LodgingsComponent,
-    LodgingComponent,
     HeaderComponent,
     FooterComponent,
     UsersComponent,

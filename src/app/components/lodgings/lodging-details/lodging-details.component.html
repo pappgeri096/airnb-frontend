@@ -69,7 +69,6 @@
 
       <a  [routerLink]="['edit']" class="btn btn-sm btn-info btn-space" name="lodgingsId">Edit</a>
       <button  (click)="deleteLodgings()"  class="btn btn-sm btn-danger btn-space" name="lodgingsId">Delete</button>
-      <button  (click)="addTodo()"  class="btn btn-sm btn-success btn-space" name="lodgingsId">New Todo</button>
       <!--<a  [routerLink]="['/todos', lodging.id, 'add']" class="btn btn-sm btn-default" name="lodgingsId">Add Todo</a>-->
 
     </div>
@@ -78,6 +77,7 @@
 
 <div>
   <h4>Lodgings Todos</h4>
+  <button  (click)="addTodo()"  class="btn btn-sm btn-success btn-space" name="lodgingsId">New Todo</button>
   <table class="table">
     <thead>
       <tr>

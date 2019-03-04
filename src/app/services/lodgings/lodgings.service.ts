@@ -35,7 +35,7 @@ export class LodgingsService {
     return this.http.post<InviteForm>(this.baseUrl + 'invite', invite);
   }
 
-  removeTenants(tenants: User) {
-    return this.http.put(this.baseUrl + 'removeTenants', tenants);
+  removeTenants(lodgingsId: number) {
+    return this.http.delete(this.baseUrl + lodgingsId + '/removeTenants');
   }
 }

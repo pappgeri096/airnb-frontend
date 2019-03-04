@@ -94,8 +94,8 @@ export class LodgingDetailsComponent implements OnInit {
     return this.lodging.todos;
   }
 
-  removeTenants(tenants: User) {
-    this.lodgingsService.removeTenants(tenants).subscribe(
+  removeTenants(lodgingsId: number) {
+    this.lodgingsService.removeTenants(lodgingsId).subscribe(
       (response) => {
         this.ngOnInit();
       },

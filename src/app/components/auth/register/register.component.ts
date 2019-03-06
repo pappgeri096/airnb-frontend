@@ -20,13 +20,13 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.editUserForm = new FormGroup({
-      'username': new FormControl(null, [Validators.required]),
-      'first_name': new FormControl(null, [Validators.required]),
-      'surname': new FormControl(null, [Validators.required]),
+      'username': new FormControl(null, [Validators.required, Validators.minLength(4), Validators.maxLength(20)]),
+      'first_name': new FormControl(null, [Validators.required, Validators.minLength(4), Validators.maxLength(20)]),
+      'surname': new FormControl(null, [Validators.required, Validators.minLength(4), Validators.maxLength(20)]),
       'email': new FormControl(null, [Validators.required, Validators.email]),
-      'password': new FormControl(null, [Validators.required]),
-      'password_confirmation': new FormControl(null, [Validators.required]),
-      'phone_number': new FormControl(null, [Validators.required]),
+      'password': new FormControl(null, [Validators.required, Validators.minLength(8)]),
+      'password_confirmation': new FormControl(null, [Validators.required, Validators.minLength(8)]),
+      'phone_number': new FormControl(null, [Validators.required, Validators.minLength(12)]),
     }, PasswordMatcher.MatchPassword);
   }
 

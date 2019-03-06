@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
 
         this.authService.lodgedIn = true;
         console.log('OK');
-        this.router.navigate(['lodgings']);
+        this.router.navigate(['/lodgings/rented']);
       },
       error => {
         console.log(error);

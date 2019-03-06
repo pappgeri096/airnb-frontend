@@ -6,6 +6,7 @@ import {TodosService} from '../../../services/todos/todos.service';
 import {Todo} from '../../../models/todo.model';
 import {Status} from '../../../utils/status.enum';
 import {User} from '../../../models/user.model';
+import {TokenStorageService} from '../../../services/auth/token-storage/token-storage.service';
 
 @Component({
   selector: 'app-lodging-details',
@@ -16,8 +17,10 @@ export class LodgingDetailsComponent implements OnInit {
 
   private id: number;
   private _lodging: Lodging;
+  isLandlord = false;
 
-  constructor(private route: ActivatedRoute, private lodgingsService: LodgingsService, private todosService: TodosService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private lodgingsService: LodgingsService,
+              private todosService: TodosService, private router: Router, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
     this.route.params.
@@ -33,7 +36,9 @@ export class LodgingDetailsComponent implements OnInit {
       this._lodging = response;
     });
 
-    console.log(this._lodging);
+    if (this._lodging.landlord.username === this.tokenStorage.getUsername()){
+      this.isLandlord = true;
+    }
   }
 
 

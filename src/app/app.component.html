@@ -3,12 +3,13 @@
 
   <!-- Sidebar -->
   <div class="bg-dark border-right" id="sidebar-wrapper" *ngIf="logedIn()">
-    <div class="sidebar-heading text-white">Lodgings Manager</div>
+    <div class="sidebar-heading text-white"><a class="text-white navbar-brand" href="" routerLink="">Lodgings Manager</a></div>
     <div class="list-group list-group-flush">
-      <a routerLink="" class="list-group-item list-group-item-action bg-dark text-white">Dashboard</a>
-      <a routerLink="/lodgings" class="list-group-item list-group-item-action bg-dark text-white">Lodgings</a>
+      <a routerLink="/lodgings/rented" class="list-group-item list-group-item-action bg-dark text-white">Rented</a>
+      <a routerLink="/lodgings/own" class="list-group-item list-group-item-action bg-dark text-white">Owned</a>
       <a routerLink="/todos" class="list-group-item list-group-item-action bg-dark text-white">Todos</a>
-      <a routerLink="/user" class="list-group-item list-group-item-action bg-dark text-white">Profile</a>
+      <a routerLink="/lodgings/add" class="list-group-item list-group-item-action bg-dark text-white">Add Lodgings</a>
+      <a routerLink="/user/invite" class="list-group-item list-group-item-action bg-dark text-white">Add Tenants</a>
     </div>
   </div>
   <!-- /#sidebar-wrapper -->
@@ -16,10 +17,16 @@
   <!-- Page Content -->
   <div id="page-content-wrapper">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-dark border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark border-bottom mb-3">
+      <span class="text-white">Hello,{{username}}</span>
+
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+
+          <li class="nav-item active" *ngIf="logedIn()">
+            <a class="nav-link text-white" routerLink="/user">Profile <span class="sr-only"></span></a>
+          </li>
           <li class="nav-item active" *ngIf="!logedIn()">
             <a class="nav-link text-white" routerLink="/registration">Register <span class="sr-only"></span></a>
           </li>
@@ -33,7 +40,7 @@
       </div>
     </nav>
 
-    <div class="container-fluid ">
+    <div class="container ">
       <router-outlet></router-outlet>
     </div>
   </div>

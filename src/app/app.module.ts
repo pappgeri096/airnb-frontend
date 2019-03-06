@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { LodgingsComponent } from './components/lodgings/lodgings.component';
-import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { UsersComponent } from './components/users/users.component';
 import { TodosComponent } from './components/todos/todos.component';
@@ -22,7 +21,6 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {httpInterceptorProviders} from './security/auth-interceptor';
 import { LogoutComponent } from './components/auth/logout/logout.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {InviteComponent} from './components/invite/invite.component';
 
 
@@ -30,7 +28,6 @@ import {InviteComponent} from './components/invite/invite.component';
   declarations: [
     AppComponent,
     LodgingsComponent,
-    HeaderComponent,
     FooterComponent,
     UsersComponent,
     TodosComponent,
@@ -45,7 +42,6 @@ import {InviteComponent} from './components/invite/invite.component';
     RegisterComponent,
     LoginComponent,
     LogoutComponent,
-    DashboardComponent,
     InviteComponent,
   ],
   imports: [

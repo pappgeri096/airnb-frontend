@@ -8,4 +8,5 @@ export class User{
    phoneNumber: string;
    surname: string;
    zipCode: string;
+   username: string;
 }

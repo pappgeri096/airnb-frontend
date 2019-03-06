@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {UsersService} from './services/users/users.service';
 import {AuthService} from './services/auth/auth.service';
+import {TokenStorageService} from './services/auth/token-storage/token-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,13 @@ import {AuthService} from './services/auth/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
-  constructor(private userService: UsersService, private auth: AuthService) { }
+
+  username: string;
+
+  constructor(private userService: UsersService, private auth: AuthService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
+    this.username = this.tokenStorage.getUsername();
   }
 
   logedIn(){

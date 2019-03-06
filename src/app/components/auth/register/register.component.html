@@ -63,36 +63,6 @@
         <span *ngIf="!editUserForm.get('phone_number').valid && editUserForm.get('phone_number').touched"
               class="help-block">Please enter a valid phone number</span>
 
-        <div class="form-group" formGroupName="address">
-          <label for="country-input">Country</label>
-          <input id="country-input" class="form-control" type="text" name="country" placeholder="Length: minimum 1 maximum 255 characters"
-                 formControlName="country"><br>
-          <span *ngIf="!editUserForm.get('address.country').valid && editUserForm.get('address.country').touched"
-                class="help-block">Please enter a valid country</span>
-
-          <label for="city-input">City</label>
-          <input id="city-input" class="form-control" type="text" name="city" placeholder="Length: minimum 1 maximum 255 characters"
-                 formControlName="city"><br>
-
-          <span *ngIf="!editUserForm.get('address.city').valid && editUserForm.get('address.city').touched"
-                class="help-block">Please enter a valid country</span>
-
-          <label for="zip-input">Zip code</label>
-          <input id="zip-input" class="form-control" type="text" name="zip_code" placeholder="Length: minimum 1 maximum 255 characters"
-                 formControlName="zip_code"><br>
-
-          <span *ngIf="!editUserForm.get('address.zip_code').valid && editUserForm.get('address.zip_code').touched"
-                class="help-block">Please enter a valid country</span>
-
-          <label for="address-input">Address</label>
-          <input id="address-input" class="form-control" type="text" name="address" placeholder="Length: minimum 1 maximum 255 characters"
-                 formControlName="address">
-
-          <span *ngIf="!editUserForm.get('address.address').valid && editUserForm.get('address.address').touched"
-                class="help-block">Please enter a valid country</span>
-
-        </div>
-
         <button value="Submit" id="submit" class="btn btn-primary btn-block" [disabled]="!editUserForm.valid">Submit</button>
       </div>
     </form>

@@ -12,21 +12,12 @@
         <span >{{user.phoneNumber}}</span></li>
       <li ><span ><strong class="">Email: </strong></span>
         <span >{{user.email}}</span></li>
-      <li >
-        <span ><strong class="">Country: </strong></span>
-        <span >{{user.country}}</span></li>
-      <li ><span ><strong class="">City: </strong></span>
-        <span >{{user.city}}</span></li>
-      <li ><span ><strong class="">Zipcode: </strong></span>
-        <span >{{user.zipCode}}</span></li>
-      <li ><span ><strong class="">Address: </strong></span>
-        <span>{{user.address}}</span></li>
     </ul>
 
       <a [routerLink]="['edit']" class="btn btn-info">Edit Profile</a>
 
 
-      <button class="btn btn-secondary" name="userId" (click)="deleteUser()">Delete profile</button>
+      <button class="btn btn-dark" name="userId" (click)="deleteUser()">Delete profile</button>
 
   </div>
 </div>

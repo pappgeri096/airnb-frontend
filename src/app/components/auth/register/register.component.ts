@@ -27,12 +27,6 @@ export class RegisterComponent implements OnInit {
       'password': new FormControl(null, [Validators.required]),
       'password_confirmation': new FormControl(null, [Validators.required]),
       'phone_number': new FormControl(null, [Validators.required]),
-      'address': new FormGroup({
-        'country': new FormControl(null, [Validators.required]),
-        'city': new FormControl(null, [Validators.required]),
-        'zip_code': new FormControl(null, [Validators.required]),
-        'address': new FormControl(null, [Validators.required])
-      })
     }, PasswordMatcher.MatchPassword);
   }
 
@@ -45,8 +39,7 @@ export class RegisterComponent implements OnInit {
       data['surname'],
       data['email'],
       data['phone_number'],
-      new Address(data['address']['country'], data['address']['city'], data['address']['zip_code'], data['address']['address']),
-      data['password'],
+      data['password']
     );
 
     console.log(data);

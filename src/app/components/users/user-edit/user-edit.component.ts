@@ -41,12 +41,6 @@ export class UserEditComponent implements OnInit {
       'password': new FormControl(null ),
       'password_confirmation': new FormControl(null),
       'phone_number': new FormControl(null, [Validators.required]),
-      'address': new FormGroup({
-        'country': new FormControl(null, [Validators.required]),
-        'city': new FormControl(null, [Validators.required]),
-        'zip_code': new FormControl(null, [Validators.required]),
-        'address': new FormControl(null, [Validators.required])
-      })
     }, PasswordMatcher.MatchPassword);
   }
 
@@ -59,8 +53,7 @@ export class UserEditComponent implements OnInit {
       data['surname'],
       data['email'],
       data['phone_number'],
-      new Address(data['address']['country'], data['address']['city'], data['address']['zip_code'], data['address']['address']),
-      data['password'],
+      data['password']
     );
 
     this.userService.updateUserInfo(userInfo).subscribe(
@@ -84,12 +77,6 @@ export class UserEditComponent implements OnInit {
       'surname': this._user.surname,
       'email': this._user.email,
       'phone_number': this._user.phoneNumber,
-      'address': {
-        'country': this._user.country,
-        'city': this._user.city,
-        'zip_code': this._user.zipCode,
-        'address': this._user.address
-      }
     });
   }
 }

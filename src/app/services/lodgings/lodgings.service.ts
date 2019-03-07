@@ -3,7 +3,7 @@ import {Lodging} from '../../models/lodging.model';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {TokenStorageService} from '../auth/token-storage/token-storage.service';
-import {InviteForm} from '../../models/InviteForm';
+import {InviteForm} from '../../utils/InviteForm';
 import {User} from '../../models/user.model';
 @Injectable({
   providedIn: 'root'

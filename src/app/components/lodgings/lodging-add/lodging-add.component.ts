@@ -54,7 +54,7 @@ export class LodgingAddComponent implements OnInit {
       (response) => {
         console.log(response);
         this.error = false;
-        this.router.navigate(['lodgings']);
+        this.router.navigate(['/lodgings/own']);
       },
       (error) => {
         console.log(error);

@@ -3,6 +3,7 @@ import {TodosService} from '../../services/todos/todos.service';
 import {Todo} from '../../models/todo.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UsersService} from '../../services/users/users.service';
+import {Status} from '../../utils/status.enum';
 
 @Component({
   selector: 'app-todos',
@@ -40,5 +41,20 @@ export class TodosComponent implements OnInit {
       }
     );
 
+  }
+
+  isTodoDone(todo: Todo) {
+    return todo.status === Status.DONE;
+  }
+
+  markAsDone(todo: Todo) {
+    this.todosService.markTodoAsDone(todo).subscribe(
+      (response) => {
+        this.ngOnInit();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

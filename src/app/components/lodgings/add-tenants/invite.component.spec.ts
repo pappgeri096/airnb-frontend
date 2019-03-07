@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoEditComponent } from './todo-edit.component';
+import { InviteComponent } from './invite.component';
 
-describe('TodoEditComponent', () => {
-  let component: TodoEditComponent;
-  let fixture: ComponentFixture<TodoEditComponent>;
+describe('InviteComponent', () => {
+  let component: InviteComponent;
+  let fixture: ComponentFixture<InviteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodoEditComponent ]
+      declarations: [ InviteComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TodoEditComponent);
+    fixture = TestBed.createComponent(InviteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

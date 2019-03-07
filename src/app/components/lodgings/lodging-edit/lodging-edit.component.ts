@@ -3,6 +3,7 @@ import {Lodging} from '../../../models/lodging.model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {LodgingsService} from '../../../services/lodgings/lodgings.service';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {TokenStorageService} from '../../../services/auth/token-storage/token-storage.service';
 
 @Component({
   selector: 'app-lodging-edit',
@@ -16,7 +17,8 @@ export class LodgingEditComponent implements OnInit {
   editForm: FormGroup;
   error: false;
 
-  constructor(private route: ActivatedRoute, private lodgingsService: LodgingsService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private lodgingsService: LodgingsService, private router: Router
+   , private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
     this.editForm = new FormGroup({
@@ -71,7 +73,7 @@ export class LodgingEditComponent implements OnInit {
     this.lodgingsService.updateLodgings(this._lodging).subscribe(
       (response) => {
         console.log(response);
-        this.router.navigate(['/lodgings']);
+        this.router.navigate(['/lodgings/own']);
       },
       (error) => {
         console.log(error);
@@ -83,9 +85,16 @@ export class LodgingEditComponent implements OnInit {
     this.lodgingsService.getLodgingsById(id).subscribe(
       (lodging: Lodging) => {
         this._lodging = lodging;
+        this.hasPermission();
         this.setLodgingsFormValues(lodging);
       }
     );
+  }
+
+  private hasPermission() {
+    if (this.lodging.landlord.username !== this.tokenStorage.getUsername()) {
+      this.router.navigate(['/lodgings/own']);
+    }
   }
 
   private setLodgingsFormValues(lodging: Lodging) {

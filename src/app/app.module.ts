@@ -21,7 +21,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {httpInterceptorProviders} from './security/auth-interceptor';
 import { LogoutComponent } from './components/auth/logout/logout.component';
-import {InviteComponent} from './components/invite/invite.component';
+import {InviteComponent} from './components/lodgings/add-tenants/invite.component';
 
 
 @NgModule({

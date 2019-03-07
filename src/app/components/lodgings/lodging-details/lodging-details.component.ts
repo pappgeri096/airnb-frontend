@@ -34,11 +34,12 @@ export class LodgingDetailsComponent implements OnInit {
     this.lodgingsService.getLodgingsById(this.id).subscribe((response) => {
       console.log(response);
       this._lodging = response;
+      if (this._lodging.landlord.username === this.tokenStorage.getUsername()){
+        this.isLandlord = true;
+      }
     });
 
-    if (this._lodging.landlord.username === this.tokenStorage.getUsername()){
-      this.isLandlord = true;
-    }
+    console.log(this.isLandlord);
   }
 
 

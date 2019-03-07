@@ -15,7 +15,7 @@ import {LoginComponent} from '../../components/auth/login/login.component';
 import {LogoutComponent} from '../../components/auth/logout/logout.component';
 import {AuthGuardService} from '../../services/auth/auth-guard/auth-guard.service';
 import {RolesGuardService} from '../../services/auth/roles-guard/roles-guard.service';
-import {InviteComponent} from '../../components/invite/invite.component';
+import {InviteComponent} from '../../components/lodgings/add-tenants/invite.component';
 
 const appRoutes = [
   {path: '', redirectTo: '/lodgings/rented', pathMatch: 'full'},
@@ -27,13 +27,13 @@ const appRoutes = [
   {path: 'lodgings/add', canActivate: [RolesGuardService], data: { expectedRole: 'ROLE_LANDLORD' }, component: LodgingAddComponent},
   {path: 'lodgings/:id/edit', canActivate: [RolesGuardService], data: { expectedRole: 'ROLE_LANDLORD' }  , component: LodgingEditComponent},
   {path: 'lodgings/:id', canActivate: [AuthGuardService], component: LodgingDetailsComponent},
+  {path: 'lodgings/:id/addTenants', canActivate: [AuthGuardService], component: InviteComponent},
   {path: 'user/lodgings', canActivate: [AuthGuardService], component: UserLodgingsComponent},
   {path: 'user', canActivate: [AuthGuardService], component: UsersComponent},
   {path: 'user/edit', canActivate: [AuthGuardService], component: UserEditComponent},
   {path: 'registration', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'logout', canActivate: [AuthGuardService], component: LogoutComponent},
-  {path: 'user/invite', canActivate: [RolesGuardService], data: { expectedRole: 'ROLE_LANDLORD' }, component: InviteComponent}
+  {path: 'logout', canActivate: [AuthGuardService], component: LogoutComponent}
 ];
 
 @NgModule({

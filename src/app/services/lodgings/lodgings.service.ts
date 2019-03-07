@@ -32,7 +32,7 @@ export class LodgingsService {
   }
 
   sendNewEnvite(invite: InviteForm) {
-    return this.http.post<InviteForm>(this.baseUrl + 'invite', invite);
+    return this.http.post<InviteForm>(this.baseUrl + 'add-tenants', invite);
   }
 
   removeTenants(lodgingsId: number) {

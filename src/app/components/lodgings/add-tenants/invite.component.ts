@@ -5,6 +5,7 @@ import {LodgingsService} from '../../../services/lodgings/lodgings.service';
 import {UsersService} from '../../../services/users/users.service';
 import {InviteForm} from '../../../utils/InviteForm';
 import {ActivatedRoute, Params, Router, Routes} from '@angular/router';
+import {TokenStorageService} from '../../../services/auth/token-storage/token-storage.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class InviteComponent implements OnInit {
   added = false;
 
   constructor(private userService: UsersService, private lodgingsService: LodgingsService,
-              private route: ActivatedRoute, private router: Router) { }
+              private route: ActivatedRoute, private router: Router, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
     this.inviteForm = new FormGroup({
@@ -31,9 +32,20 @@ export class InviteComponent implements OnInit {
       (params: Params) => {
         console.log(params['id']);
         this.lodgingsId = +params['id'];
+        this.hasPermission();
       }
     );
 
+  }
+
+  private hasPermission() {
+    this.lodgingsService.getLodgingsById(this.lodgingsId).subscribe(
+      (response) => {
+        if (response.landlord.username !== this.tokenStorage.getUsername()) {
+          this.router.navigate(['/lodgings/own']);
+        }
+      }
+    );
   }
 
   onSubmit(){

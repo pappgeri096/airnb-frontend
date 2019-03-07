@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {TodosService} from '../../services/todos/todos.service';
 import {LodgingsService} from '../../services/lodgings/lodgings.service';
 import {AuthService} from '../../services/auth/auth.service';
+import {Lodging} from '../../models/lodging.model';
 
 @Component({
   selector: 'app-users',
@@ -26,7 +27,9 @@ export class UsersComponent implements OnInit {
      this.userService.getUserFromDB().subscribe( (response) => {
        this._user = response;
      },
-     (error) => {console.log(error); });
+     (error) => {console.log(error);
+     });
+
   }
 
 

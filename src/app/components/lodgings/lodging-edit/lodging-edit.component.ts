@@ -71,7 +71,7 @@ export class LodgingEditComponent implements OnInit {
     this.lodgingsService.updateLodgings(this._lodging).subscribe(
       (response) => {
         console.log(response);
-        this.router.navigate(['/lodgings']);
+        this.router.navigate(['/lodgings/own']);
       },
       (error) => {
         console.log(error);

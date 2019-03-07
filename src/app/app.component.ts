@@ -10,16 +10,18 @@ import {TokenStorageService} from './services/auth/token-storage/token-storage.s
 })
 export class AppComponent{
 
-  username: string;
 
   constructor(private userService: UsersService, private auth: AuthService, private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
-    this.username = this.tokenStorage.getUsername();
   }
 
   logedIn(){
     return this.auth.isLogedIn();
+  }
+
+  getUsername() {
+    return this.tokenStorage.getUsername();
   }
 
 }

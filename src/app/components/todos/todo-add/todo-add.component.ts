@@ -40,7 +40,7 @@ export class TodoAddComponent implements OnInit {
 
     this.todoService.addNewTodo(this.lodgingId, todo).subscribe(
       () => {
-        this.router.navigate(['/todos']);
+        this.router.navigate(['/lodgings', this.lodgingId]);
       },
       (error) => {
         console.log(error);

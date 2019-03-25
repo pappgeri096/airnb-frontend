@@ -1,5 +1,5 @@
 <div class="mb-1">
-  <button [routerLink]="['/lodgings', lodging.id, 'edit']" class="btn btn-success mr-2">Edit Lodgings</button>
+  <button [routerLink]="['/lodgings', lodging.id, 'edit']" *ngIf="isLandlord" class="btn btn-success mr-2">Edit Lodgings</button>
   <button *ngIf="lodging.tenants !== null && isLandlord"  class="btn btn-danger" (click)="removeTenants(lodging.id)">Remove Tenants</button>
   <button *ngIf="lodging.tenants === null && isLandlord" [routerLink]="['/lodgings', lodging.id, 'addTenants']" class="btn btn-success">Add Tenants</button>
 </div>
